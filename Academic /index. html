@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Academic / Services</title>
+<style>
+body {
+    font-family: Arial;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+h1 {
+    background-color: #004080;
+    color: white;
+    padding: 15px;
+}
+.box {
+    background: white;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Academic / Services</h1>
+
+<div class="box">
+<h3>Classes</h3>
+<p>Nursery to 10th Class available</p>
+</div>
+
+<div class="box">
+<h3>Subjects</h3>
+<p>English, Math, Science, Computer</p>
+</div>
+
+<div class="box">
+<h3>Facilities</h3>
+<p>Computer Lab, Library, Sports</p>
+</div>
+
+<div class="box">
+<h3>Extra Activities</h3>
+<p>Sports, Events, Competitions</p>
+</div>
+
+</body>
+</html>
