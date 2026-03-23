@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academic Services</title>
+</head>
+
+<body>
+
+<h1>Academic Services</h1>
+
+<p>Yahan school ke academic services show hongi.</p>
+
+<ul>
+    <li>Class Timetable</li>
+    <li>Subjects Detail</li>
+    <li>Exams Information</li>
+</ul>
+
+<a href="../index.html">Back to Home</a>
+
+</body>
+</html>
