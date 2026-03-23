@@ -1,5 +1,15 @@
-<!DOCTYPE html> <html> <head> <title>Admission - School</title> </head> <body> <h1>School Admission Form</h1> <form> <form onsubmit="showMessage(event)">
-  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admission - School</title>
+</head>
+
+<body>
+
+<h1>School Admission Form</h1>
+
+<form onsubmit="showMessage(event)">
+
   <label>Student Name:</label><br>
   <input type="text"><br><br>
 
@@ -14,10 +24,19 @@
 
   <input type="submit" value="Submit">
 
+</form>
 
 <p id="msg"></p>
 
 <script>
 function showMessage(e){
   e.preventDefault();
-  document.getElementById("
+  document.getElementById("msg").innerHTML = "Form Submitted Successfully!";
+}
+</script>
+
+<br>
+<a href="../index.html">Back to Home</a>
+
+</body>
+</html>
