@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admission</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+<h1>Admission Form</h1><h2>Admissions</h2>
+
+<p>Admissions are open for the academic session 2026-27.</p>
+
+<p>Classes available: Nursery to 8th</p>
+
+<p>Required Documents:</p>
+<ul>
+  <li>Birth Certificate</li>
+  <li>Previous Class Report Card</li>
+  <li>Passport Size Photos</li>
+</ul>
+
+<p>For more details contact us:</p>
+<p>Phone: 7889558829</p>
+<p>Email: Najaryaseen29@gmail.com</p>
+<h2>Admission Form</h2>
+
+<form>
+  <input type="text" placeholder="Student Name"><br><br>
+  <input type="text" placeholder="Father Name"><br><br>
+  <input type="text" placeholder="Class"><br><br>
+  <input type="text" placeholder="Phone Number"><br><br>
+  <button type="submit">Submit</button>
+</form>
+
+<form>
+    <input type="text" placeholder="Student Name"><br><br>
+    <input type="text" placeholder="Father Name"><br><br>
+    <input type="number" placeholder="Age"><br><br>
+    <input type="text" placeholder="Class"><br><br>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
