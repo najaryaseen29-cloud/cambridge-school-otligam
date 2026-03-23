@@ -1,1 +1,26 @@
-<!DOCTYPE html> <html> <head> <title>Admission - School</title> </head> <body> <h1>School Admission Form</h1> <form> <label>Student Name:</label><br> <input type="text" name="name"><br><br> <label>Father Name:</label><br> <input type="text" name="father"><br><br> <label>Class:</label><br> <input type="text" name="class"><br><br> <label>Phone Number:</label><br> <input type="text" name="phone"><br><br> <input type="submit" value="Submit"> </form> <br> <a href="../index.html">Back to Home</a> </body> </html>
+<!DOCTYPE html> <html> <head> <title>Admission - School</title> </head> <body> <h1>School Admission Form</h1> <form> <form onsubmit="showMessage(event)">
+  
+  <label>Student Name:</label><br>
+  <input type="text"><br><br>
+
+  <label>Father Name:</label><br>
+  <input type="text"><br><br>
+
+  <label>Class:</label><br>
+  <input type="text"><br><br>
+
+  <label>Phone Number:</label><br>
+  <input type="text"><br><br>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+<p id="msg"></p>
+
+<script>
+function showMessage(e){
+  e.preventDefault();
+  document.getElementById("msg").innerHTML = "Form Submitted Successfully!";
+}
+</script></form> <br> <a href="../index.html">Back to Home</a> </body> </html>
