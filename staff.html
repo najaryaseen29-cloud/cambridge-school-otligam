@@ -2,36 +2,101 @@
 <html>
 <head>
     <title>Staff / Teachers</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f6fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            background: #e6f0ff;
+        }
+
+        .card h3 {
+            color: #007BFF;
+            margin-bottom: 5px;
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 10px 0;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>School Staff</h1>
 
 <h2>Principal</h2>
-<div>
+<div class="card">
     <h3>Gulzar Ahmad Najar</h3>
     <p>Parentage: Mohammad Afzal Najar</p>
     <p>Address: Rani Pora Beerwah</p>
     <p>Contact: 9858443174</p>
 </div>
 
-<hr>
-
 <h2>Coordinator</h2>
-<div>
+<div class="card">
     <h3>Firdous Ahmad Dar</h3>
     <p>Parentage: Abdul Aziz Dar</p>
     <p>Address: Otligam</p>
 </div>
 
-<hr>
-
 <h1>Our Teachers</h1>
 
-<div>
+<div class="card">
     <h3>Mohammad Yaseen Najar</h3>
-    <img src="yaseen.jpg" width="150">
+    <img src="yaseen.jpg">
     <p>Parentage: Ali Mohammad Najar</p>
     <p>Qualification: B.A</p>
     <p>Experience: 2 Years</p>
@@ -40,11 +105,9 @@
     <p>Email: Najaryaseen29@gmail.com</p>
 </div>
 
-<hr>
-
-<div>
+<div class="card">
     <h3>Asifa Akhter</h3>
-    <img src="asifa.jpg" width="150">
+    <img src="asifa.jpg">
     <p>Parentage: Habib Ullah Sheikh</p>
     <p>Qualification: MA</p>
     <p>Experience: 4 Years</p>
@@ -52,22 +115,18 @@
     <p>Contact: 9103303438</p>
 </div>
 
-<hr>
-
-<div>
+<div class="card">
     <h3>Iqra Ayoub</h3>
-    <img src="iqra.jpg" width="150">
+    <img src="iqra.jpg">
     <p>Parentage: Mohd. Ayoub Khan</p>
-    <p>Qualification: BCA (University of Kashmir)</p>
+    <p>Qualification: BCA</p>
     <p>Address: Gundipora</p>
     <p>Contact: 7006908381</p>
 </div>
 
-<hr>
-
-<div>
+<div class="card">
     <h3>Jameela Hameed</h3>
-    <img src="jameela.jpg" width="150">
+    <img src="jameela.jpg">
     <p>Parentage: Abdul Hameed Tantray</p>
     <p>Qualification: PG</p>
     <p>Experience: 3 Years</p>
@@ -75,20 +134,18 @@
     <p>Contact: 8899910323</p>
 </div>
 
-<hr>
-
-<div>
+<div class="card">
     <h3>Reyaz Ahmad Bhat</h3>
-    <img src="reyaz.jpg" width="150">
+    <img src="reyaz.jpg">
     <p>Parentage: Abdul Rahman Bhat</p>
     <p>Qualification: Post Graduation</p>
     <p>Address: Otligam Beerwah Budgam</p>
     <p>Contact: 7889560583</p>
 </div>
 
-<hr>
+<a href="index.html" class="btn">Back to Home</a>
 
-<a href="index.html">Back to Home</a>
+</div>
 
 </body>
 </html>
