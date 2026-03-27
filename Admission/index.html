@@ -2,41 +2,107 @@
 <html>
 <head>
   <title>Admission - School</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background:#f4f4f4;
+    }
+
+    .container {
+      background:white;
+      max-width:800px;
+      margin:auto;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align:center;
+      color:#004080;
+    }
+
+    input {
+      width:100%;
+      padding:8px;
+      margin:5px 0;
+    }
+
+    button {
+      background:#004080;
+      color:white;
+      padding:10px;
+      border:none;
+      width:100%;
+      margin-top:10px;
+    }
+
+    .logo {
+      display:block;
+      margin:auto;
+      width:100px;
+    }
+  </style>
+
 </head>
 
 <body>
 
-<h1>School Admission Form</h1>
+<div class="container">
+
+<!-- 🔥 LOGO -->
+<img src="../logo.png" class="logo">
+
+<h1>Cambridge School of Modern Education</h1>
+<h3 style="text-align:center;">Admission Form</h3>
+
+<hr>
 
 <form onsubmit="showMessage(event)">
 
-  <label>Student Name:</label><br>
-  <input type="text"><br><br>
+  <label>Student Name:</label>
+  <input type="text" required>
 
-  <label>Father Name:</label><br>
-  <input type="text"><br><br>
+  <label>Father Name:</label>
+  <input type="text" required>
 
-  <label>Class:</label><br>
-  <input type="text"><br><br>
+  <label>Mother Name:</label>
+  <input type="text">
 
-  <label>Phone Number:</label><br>
-  <input type="text"><br><br>
+  <label>Class Applied:</label>
+  <input type="text" required>
 
-  <input type="submit" value="Submit">
+  <label>Date of Birth:</label>
+  <input type="date">
+
+  <label>Phone Number:</label>
+  <input type="text" required>
+
+  <label>Email:</label>
+  <input type="email">
+
+  <label>Address:</label>
+  <input type="text">
+
+  <button type="submit">Submit</button>
 
 </form>
 
-<p id="msg"></p>
+<p id="msg" style="color:green; text-align:center;"></p>
 
 <script>
 function showMessage(e){
   e.preventDefault();
-  document.getElementById("msg").innerHTML = "Form Submitted Successfully!";
+  document.getElementById("msg").innerHTML = "✅ Form Submitted Successfully!";
 }
 </script>
 
 <br>
-<a href="../index.html">Back to Home</a>
+
+<a href="../index.html">⬅ Back to Home</a>
+
+</div>
 
 </body>
 </html>
