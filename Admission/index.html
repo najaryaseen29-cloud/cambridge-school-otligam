@@ -1,49 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admission - School</title>
+<title>Admission Form</title>
 
-  <style>
-    body {
-      font-family: Arial;
-      background:#f4f4f4;
-    }
+<style>
+body {
+  font-family: Arial;
+  background:#f4f4f4;
+}
 
-    .container {
-      background:white;
-      max-width:800px;
-      margin:auto;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
-    }
+.container {
+  width:900px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border:2px solid #004080;
+}
 
-    h1 {
-      text-align:center;
-      color:#004080;
-    }
+.header {
+  text-align:center;
+}
 
-    input {
-      width:100%;
-      padding:8px;
-      margin:5px 0;
-    }
+.logo {
+  width:100px;
+}
 
-    button {
-      background:#004080;
-      color:white;
-      padding:10px;
-      border:none;
-      width:100%;
-      margin-top:10px;
-    }
+h1,h2 {
+  margin:5px;
+  color:#004080;
+}
 
-    .logo {
-      display:block;
-      margin:auto;
-      width:100px;
-    }
-  </style>
+.line-input {
+  border:none;
+  border-bottom:1px solid black;
+  width:100%;
+}
+
+.row {
+  display:flex;
+  gap:10px;
+}
+
+.row div {
+  flex:1;
+}
+
+.photo-box {
+  border:2px solid black;
+  width:120px;
+  height:140px;
+  text-align:center;
+  font-size:12px;
+  padding-top:50px;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+table, th, td {
+  border:1px solid black;
+}
+
+th, td {
+  padding:5px;
+  text-align:center;
+}
+
+button {
+  background:#004080;
+  color:white;
+  padding:10px;
+  border:none;
+  width:100%;
+  margin-top:15px;
+}
+</style>
 
 </head>
 
@@ -51,50 +84,116 @@
 
 <div class="container">
 
-<!-- 🔥 LOGO -->
-<img src="../logo.png" class="logo">
-
-<h1>Cambridge School of Modern Education</h1>
-<h3 style="text-align:center;">Admission Form</h3>
+<div class="header">
+  <img src="../logo.png" class="logo">
+  <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
+  <h2>OTLIGAM BEERWAH</h2>
+  <h2>ADMISSION FORM</h2>
+</div>
 
 <hr>
 
-<form onsubmit="showMessage(event)">
+<div class="row">
+  <div>
+    <p><b>Admission No:</b> <input class="line-input"></p>
+    <p><b>Date:</b> <input class="line-input"></p>
+  </div>
 
-  <label>Student Name:</label>
-  <input type="text" required>
+  <div class="photo-box">
+    PHOTO<br>(STUDENT)
+  </div>
+</div>
 
-  <label>Father Name:</label>
-  <input type="text" required>
+<hr>
 
-  <label>Mother Name:</label>
-  <input type="text">
+<p><b>Name of Student:</b> <input class="line-input"></p>
 
-  <label>Class Applied:</label>
-  <input type="text" required>
+<p><b>Father's Name:</b> <input class="line-input"></p>
 
-  <label>Date of Birth:</label>
-  <input type="date">
+<p><b>Mother's Name:</b> <input class="line-input"></p>
 
-  <label>Phone Number:</label>
-  <input type="text" required>
+<p><b>Last School Attended:</b> <input class="line-input"></p>
 
-  <label>Email:</label>
-  <input type="email">
+<div class="row">
+  <div>
+    <p><b>Last Grade:</b> <input class="line-input"></p>
+  </div>
+  <div>
+    <p><b>Grade Applied:</b> <input class="line-input"></p>
+  </div>
+  <div>
+    <p><b>Sex:</b> <input class="line-input"></p>
+  </div>
+</div>
 
-  <label>Address:</label>
-  <input type="text">
+<p><b>Date of Birth:</b> <input class="line-input"></p>
 
-  <button type="submit">Submit</button>
+<div class="row">
+  <div>
+    <p><b>Category:</b> <input class="line-input"></p>
+  </div>
+  <div>
+    <p><b>Blood Group:</b> <input class="line-input"></p>
+  </div>
+</div>
 
-</form>
+<p><b>Address:</b> <input class="line-input"></p>
+
+<div class="row">
+  <div>
+    <p><b>Phone:</b> <input class="line-input"></p>
+  </div>
+  <div>
+    <p><b>Email:</b> <input class="line-input"></p>
+  </div>
+</div>
+
+<hr>
+
+<h3>Previous Education Qualification</h3>
+
+<table>
+<tr>
+<th>S.No</th>
+<th>Class</th>
+<th>School Name</th>
+<th>Session</th>
+<th>Grade/Percentage</th>
+</tr>
+
+<tr><td>1</td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>2</td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>3</td><td><input></td><td><input></td><td><input></td><td><input></td><td></td></tr>
+
+</table>
+
+<hr>
+
+<h3>Documents Required</h3>
+<ul>
+<li>Birth Certificate</li>
+<li>Aadhar Card</li>
+<li>Marks Sheet</li>
+<li>Photos</li>
+</ul>
+
+<!-- ✅ Submit Message -->
+<button onclick="submitForm()">Submit</button>
+
+<!-- ✅ Print Button -->
+<button onclick="window.print()">🖨️ Print Form</button>
+
+<!-- ✅ Google Form Submit -->
+<br><br>
+<a href="PASTE-YOUR-GOOGLE-FORM-LINK" target="_blank">
+  <button type="button">📤 Submit Online</button>
+</a>
 
 <p id="msg" style="color:green; text-align:center;"></p>
 
 <script>
-function showMessage(e){
-  e.preventDefault();
-  document.getElementById("msg").innerHTML = "✅ Form Submitted Successfully!";
+function submitForm(){
+  document.getElementById("msg").innerHTML = "✅ Form Filled Successfully! Now click 'Submit Online'";
 }
 </script>
 
