@@ -1,0 +1,35 @@
+# List of co-curricular activities with details
+co_curricular_activities = [
+    {
+        "activity_name": "Road Safety Club",
+        "teacher_in_charge": "Sobia Mam, Shabaz Sir",
+        "student_in_charge": ["Irtiqa Habib", "Jannat ul Firdous", "Ikhlas Ali"],
+        "students": [
+            "Muntazir Mukhtar", "Asrar Manzoor", "Aasif Jabar", "Murtaza Farooq"
+        ]
+    },
+    {
+        "activity_name": "Eco Club",
+        "teacher_in_charge": "Sobia Mam, Shabaz Sir",
+        "student_in_charge": ["Irtiqa Habib", "Jannat ul Firdous", "Ikhlas Ali"],
+        "students": [
+            "Muntazir Mukhtar", "Asrar Manzoor", "Aasif Jabar", "Murtaza Farooq"
+        ]
+    },
+    {
+        "activity_name": "Literature Club",
+        "teacher_in_charge": "Sobia Mam, Shabaz Sir",
+        "student_in_charge": ["Irtiqa Habib", "Jannat ul Firdous", "Ikhlas Ali"],
+        "students": [
+            "Muntazir Mukhtar", "Asrar Manzoor", "Aasif Jabar", "Murtaza Farooq"
+        ]
+    },
+]
+
+# Displaying the activities
+for activity in co_curricular_activities:
+    print(f"Activity: {activity['activity_name']}")
+    print(f"Teacher In-Charge: {activity['teacher_in_charge']}")
+    print(f"Student In-Charge: {', '.join(activity['student_in_charge'])}")
+    print(f"Students: {', '.join(activity['students'])}")
+    print("-" * 40)
