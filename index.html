@@ -1,206 +1,151 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-    <meta name="google-site-verification" content="urgUsZZuYvZZ3dD10AoZFiy97tPdXC6XXYWAjzy8sKg" />  
-    <title>Cambridge School of Modern Education Otligam</title>  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="google-site-verification" content="urgUsZZuYvZZ3dD10AoZFiy97tPdXC6XXYWAjzy8sKg" />
+    <title>Cambridge School of Modern Education Otligam</title>
 
-    <style>  
-        body {  
-            font-family: Arial;  
-            margin: 0;  
-            padding: 0;  
-            background-color: #f4f4f4;  
-            text-align: center;  
-        }  
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
 
-        header {  
-            background-color: #004080;  
-            color: white;  
-            padding: 15px;  
-        }  
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 15px;
+        }
 
-        nav {  
-            background-color: #003366;  
-            padding: 10px;  
-        }  
+        nav {
+            background-color: #003366;
+            padding: 10px;
+        }
 
-        nav a {  
-            color: white;  
-            margin: 10px;  
-            text-decoration: none;  
-            font-weight: bold;  
-        }  
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-        section {  
-            padding: 20px;  
-        }  
+        section {
+            padding: 20px;
+        }
 
-        .btn {  
-            background-color: #004080;  
-            color: white;  
-            padding: 10px 15px;  
-            text-decoration: none;  
-            border-radius: 5px;  
-        }  
+        .btn {
+            background-color: #004080;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
 
-        footer {  
-            background-color: #222;  
-            color: white;  
-            padding: 10px;  
-            position: fixed;  
-            width: 100%;  
-            bottom: 0;  
-        }  
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
 
-        .result-card {  
-            background-color: #e6f2ff;  
-            color: #003366;  
-            padding: 15px;  
-            margin: 10px;  
-            border-radius: 10px;  
-            width: 250px;  
-            text-align: left;  
-            display: inline-block;  
-        }  
+<body>
 
-        .result-card h3 {  
-            color: #003366;  
-        }  
+<header>
+    <h1>Cambridge School of Modern Education Otligam</h1>
+    <p>Welcome to our official website</p>
+</header>
 
-        .result-card p {  
-            color: #444;  
-        }  
+<nav>
+<a href="Academic/service.html">Academic/Service </a>
+<a href="Admission/index.html">Admission</a>
+<a href="result.html">Result</a>
+<a href="gallery.html">Gallery</a>
+<a href="staff.html">Staff/Teachers</a>
+<a href="recruitment/index.html">recruitment</a>
+</nav>
 
-        .result-not-found {  
-            background-color: #ffcccc;  
-            padding: 15px;  
-            color: #cc0000;  
-            border-radius: 10px;  
-            margin-top: 20px;  
-        }  
-    </style>  
-</head>  
+<section>
+    <h2>About Us</h2>
+    <p>We provide quality education and a bright future for students.</p>
+<h2 id="academic" style="color:#004080;">🎓 Academic / Services</h2>
 
-<body>  
+<div style="display:flex; flex-wrap:wrap; justify-content:center;">
 
-<header>  
-    <h1>Cambridge School of Modern Education Otligam</h1>  
-    <p>Welcome to our official website</p>  
-</header>  
+  <div style="background:#e6f2ff; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#003366;">📘 Quality Education</h3>
+    <p>Strong academic foundation with experienced teachers.</p>
+  </div>
 
-<nav>  
-<a href="Academic/service.html">Academic/Service </a>  
-<a href="Admission/index.html">Admission</a>  
-<a href="result.html">Result</a>  
-<a href="gallery.html">Gallery</a>  
-<a href="staff.html">Staff/Teachers</a>  
-<a href="recruitment/index.html">recruitment</a>  
-</nav>  
+  <div style="background:#fff0f5; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#cc0066;">💻 Computer Lab</h3>
+    <p>Modern computer lab with latest technology.</p>
+  </div>
 
-<section>  
-    <h2>Enter Roll Number to View Result</h2>  
-    <form id="result-form">
-        <label for="roll-number">Roll Number:</label>
-        <input type="text" id="roll-number" name="roll-number" required>
-        <button type="submit">Submit</button>
-    </form>
+  <div style="background:#f0fff0; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#009933;">🔬 Science Lab</h3>
+    <p>Hands-on experiments for better learning.</p>
+  </div>
 
-    <div id="result"></div> <!-- Results will be shown here -->
+  <div style="background:#fff8dc; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#cc9900;">📚 Library</h3>
+    <p>Wide collection of books and study materials.</p>
+  </div>
 
-</section>  
+  <div style="background:#f5f5ff; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#3333cc;">⚽ Sports Activities</h3>
+    <p>Indoor & outdoor sports for students.</p>
+  </div>
 
-<section>  
-    <h2>About Us</h2>  
-    <p>We provide quality education and a bright future for students.</p>  
-<h2 id="academic" style="color:#004080;">🎓 Academic / Services</h2>  
+  <div style="background:#ffe4e1; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#cc0000;">🚌 Transport Facility</h3>
+    <p>Safe and reliable transport service.</p>
+  </div>
 
-<div style="display:flex; flex-wrap:wrap; justify-content:center;">  
+  <div style="background:#e0ffff; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#008b8b;">🩺 Health & Safety</h3>
+    <p>First aid and health awareness programs.</p>
+  </div>
 
-  <div style="background:#e6f2ff; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#003366;">📘 Quality Education</h3>  
-    <p>Strong academic foundation with experienced teachers.</p>  
-  </div>  
+  <div style="background:#f9f9f9; padding:15px; margin:10px; width:250px; border-radius:10px;">
+    <h3 style="color:#444;">🎭 Co-Curricular Activities</h3>
+    <p>Debates, cultural programs & competitions.</p>
+  </div>
 
-  <div style="background:#fff0f5; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#cc0066;">💻 Computer Lab</h3>  
-    <p>Modern computer lab with latest technology.</p>  
-  </div>  
+</div>
 
-  <div style="background:#f0fff0; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#009933;">🔬 Science Lab</h3>  
-    <p>Hands-on experiments for better learning.</p>  
-  </div>  
+<br>
 
-  <div style="background:#fff8dc; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#cc9900;">📚 Library</h3>  
-    <p>Wide collection of books and study materials.</p>  
-  </div>  
+<!-- 🔗 Extra Links -->
+<div style="text-align:center;">
+  <a href="#admission" style="background:#004080; color:white; padding:10px; margin:5px; border-radius:5px; text-decoration:none;">Apply Now</a>
+  
+  <a href="#gallery" style="background:#009933; color:white; padding:10px; margin:5px; border-radius:5px; text-decoration:none;">View Gallery</a>
+  
+  <a href="#contact" style="background:#cc0000; color:white; padding:10px; margin:5px; border-radius:5px; text-decoration:none;">Contact Us</a>
+</div>
+</section>
 
-  <div style="background:#f5f5ff; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#3333cc;">⚽ Sports Activities</h3>  
-    <p>Indoor & outdoor sports for students.</p>  
-  </div>  
+<section>
+    <h2>Admissions</h2>
+    <p>Download admission form below:</p>
+    <a class="btn" href="admission-index.html" target="_blank">Apply for Admission </a>
+</section>
 
-  <div style="background:#ffe4e1; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#cc0000;">🚌 Transport Facility</h3>  
-    <p>Safe and reliable transport service.</p>  
-  </div>  
+<section>
+    <h2>Contact Us</h2>
+    <p>Phone: 7889558829</p>
+    <p>Email: Najaryaseen29@gmail.com</p>
+</section>
 
-  <div style="background:#e0ffff; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#008b8b;">🩺 Health & Safety</h3>  
-    <p>First aid and health awareness programs.</p>  
-  </div>  
+<footer>
+    <p>© 2026 Cambridge School</p>
+</footer>
 
-  <div style="background:#f9f9f9; padding:15px; margin:10px; width:250px; border-radius:10px;">  
-    <h3 style="color:#444;">🎭 Co-Curricular Activities</h3>  
-    <p>Debates, cultural programs & competitions.</p>  
-  </div>  
-
-</div>  
-</section>  
-
-<footer>  
-    <p>© 2026 Cambridge School</p>  
-</footer>  
-
-<!-- JavaScript to Fetch Results -->
-<script>
-    // When the form is submitted
-    document.getElementById('result-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from refreshing the page
-        const rollNumber = document.getElementById('roll-number').value; // Get roll number from input field
-        const resultDiv = document.getElementById('result'); // Div to display result
-
-        // Fetch the results.json file from GitHub (Update this URL with your own)
-        fetch('https://raw.githubusercontent.com/your-username/your-repository-name/main/results.json')  <!-- This is the line to update -->
-            .then(response => response.json())
-            .then(data => {
-                // Check if the roll number exists in the data
-                if (data[rollNumber]) {
-                    const student = data[rollNumber];
-                    // Display the result for the student in a colorful result card
-                    resultDiv.innerHTML = `
-                        <div class="result-card">
-                            <h3>${student.name}</h3>
-                            <p><strong>English:</strong> ${student.english}</p>
-                            <p><strong>Urdu:</strong> ${student.urdu}</p>
-                            <p><strong>Mathematics:</strong> ${student.mathematics}</p>
-                            <p><strong>Science:</strong> ${student.science}</p>
-                            <p><strong>Social Science:</strong> ${student.social_science}</p>
-                            <p><strong>Total Marks:</strong> ${student.total_marks}</p>
-                        </div>
-                    `;
-                } else {
-                    // If no result is found for the entered roll number
-                    resultDiv.innerHTML = `<div class="result-not-found">No result found for Roll Number: ${rollNumber}</div>`;
-                }
-            })
-            .catch(error => {
-                // If there is an error fetching data
-                resultDiv.innerHTML = `<div class="result-not-found">Error fetching data.</div>`;
-            });
-    });
-</script>
-
-</body>  
+</body>
 </html>
