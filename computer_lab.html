@@ -1,104 +1,155 @@
 <!DOCTYPE html>
 <html lang="ur">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Lab - Cambridge School</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #004080;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-        }
-        section img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #004080;
-        }
-        .content-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .content-box {
-            width: 45%;
-            padding: 15px;
-            margin: 10px;
-            background-color: #e6f2ff;
-            border-radius: 10px;
-        }
-        footer {
-            background-color: #222;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .cta-btn {
-            background-color: #004080;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .cta-btn:hover {
-            background-color: #003366;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Lab - Cambridge School</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: linear-gradient(to right, #e6f2ff, #ffffff);
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #004080, #0066cc);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Section Box */
+.box {
+    background: white;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 900px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Headings */
+h2 {
+    color: #004080;
+}
+
+/* Images */
+.img-container {
+    text-align: center;
+}
+
+.img-container img {
+    width: 280px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.img-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Features */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature-box {
+    background: #e6f2ff;
+    width: 40%;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background: #004080;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <h1>Computer Lab at Cambridge School</h1>
+<h1>💻 Computer Lab</h1>
+<p>Cambridge School of Modern Education Otligam</p>
 </header>
 
-<section>
-    <h2>Modern Computer Lab with Latest Technology</h2>
-    <img src="computer_lab_image.jpg" alt="Computer Lab Image">
-    <p>Our computer lab is equipped with the latest technology to ensure that students are familiar with the tools needed for the modern world. From high-speed computers to advanced software and hardware, we ensure that our students get the best practical experience possible.</p>
+<div class="box">
+<h2>Modern Computer Lab</h2>
 
-    <div class="content-container">
-        <div class="content-box">
-            <h3>💻 High-Speed Computers</h3>
-            <p>We have the latest high-performance computers, designed to meet the needs of both students and educators. Our computers are equipped with powerful processors and fast storage.</p>
-        </div>
-        
-        <div class="content-box">
-            <h3>🖱️ Advanced Software</h3>
-            <p>Students have access to the latest software used in programming, graphic design, animation, and more. We ensure they are familiar with industry-standard tools like Adobe Suite, AutoCAD, and more.</p>
-        </div>
-    </div>
+<p>
+Our computer lab is equipped with modern technology to prepare students for the digital world.
+Students learn practical skills with advanced systems and software.
+</p>
 
-    <a href="contact.html" class="cta-btn">Contact Us</a>
-</section>
+<div class="img-container">
+<img src="https://images.unsplash.com/photo-1581091870622-1e7b1f4d1c76">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+</div>
+
+</div>
+
+<div class="box">
+<h2>Lab Features</h2>
+
+<div class="features">
+
+<div class="feature-box">
+<h3>💻 High-Speed Computers</h3>
+<p>Latest systems with fast processors and smooth performance.</p>
+</div>
+
+<div class="feature-box">
+<h3>🖥️ Smart Learning</h3>
+<p>Students learn coding, typing, and digital skills.</p>
+</div>
+
+<div class="feature-box">
+<h3>🖱️ Advanced Software</h3>
+<p>Access to modern tools for design and learning.</p>
+</div>
+
+<div class="feature-box">
+<h3>🌐 Internet Facility</h3>
+<p>Safe and fast internet for educational use.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="box">
+<h2>Contact Us</h2>
+<p>📞 7889558829</p>
+<p>📧 Najaryaseen29@gmail.com</p>
+
+<a href="index.html" class="btn">⬅ Back to Home</a>
+</div>
 
 <footer>
-    <p>Contact Us: 7889558829 | Email: Najaryaseen29@gmail.com</p>
+<p>© 2026 Cambridge School</p>
 </footer>
 
 </body>
