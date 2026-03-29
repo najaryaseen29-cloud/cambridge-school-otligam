@@ -5,17 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Lab - Cambridge School</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #004080;
+        }
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .content-box {
+            width: 45%;
+            padding: 15px;
+            margin: 10px;
+            background-color: #e6f2ff;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .cta-btn {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .cta-btn:hover {
+            background-color: #003366;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Computer Lab</h1>
-    </header>
-    <section>
-        <h2>Modern computer lab with latest technology</h2>
-        <p>Our computer lab is equipped with the latest technology to ensure students are familiar with the tools needed for the modern world.</p>
-    </section>
-    <footer>
-        <p>Contact Us: 7889558829 | Email: Najaryaseen29@gmail.com</p>
-    </footer>
+
+<header>
+    <h1>Computer Lab at Cambridge School</h1>
+</header>
+
+<section>
+    <h2>Modern Computer Lab with Latest Technology</h2>
+    <img src="computer_lab_image.jpg" alt="Computer Lab Image">
+    <p>Our computer lab is equipped with the latest technology to ensure that students are familiar with the tools needed for the modern world. From high-speed computers to advanced software and hardware, we ensure that our students get the best practical experience possible.</p>
+
+    <div class="content-container">
+        <div class="content-box">
+            <h3>💻 High-Speed Computers</h3>
+            <p>We have the latest high-performance computers, designed to meet the needs of both students and educators. Our computers are equipped with powerful processors and fast storage.</p>
+        </div>
+        
+        <div class="content-box">
+            <h3>🖱️ Advanced Software</h3>
+            <p>Students have access to the latest software used in programming, graphic design, animation, and more. We ensure they are familiar with industry-standard tools like Adobe Suite, AutoCAD, and more.</p>
+        </div>
+    </div>
+
+    <a href="contact.html" class="cta-btn">Contact Us</a>
+</section>
+
+<footer>
+    <p>Contact Us: 7889558829 | Email: Najaryaseen29@gmail.com</p>
+</footer>
+
 </body>
 </html>
