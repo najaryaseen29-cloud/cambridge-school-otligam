@@ -32,8 +32,8 @@ h1,h2 {
 
 input, select {
   width:100%;
-  padding:5px;
-  margin-top:5px;
+  padding:6px;
+  margin:5px 0;
 }
 
 .row {
@@ -47,8 +47,8 @@ input, select {
 
 .photo-box {
   border:2px solid black;
-  width:140px;
-  height:160px;
+  width:150px;
+  height:170px;
   text-align:center;
   padding:5px;
 }
@@ -96,7 +96,7 @@ button:hover {
 
   <!-- 🔹 Photo Upload -->
   <div class="photo-box">
-    Upload Photo
+    Student Photo
     <input type="file" accept="image/*">
   </div>
 </div>
@@ -183,15 +183,14 @@ button:hover {
 
 <hr>
 
-<!-- ✅ Buttons -->
 <button onclick="saveData()">💾 Save Data</button>
 
 <button onclick="window.print()">🖨️ Print Form</button>
 
 <br><br>
 
-<!-- 🔹 Google Form Link -->
-<a href="PASTE-YOUR-GOOGLE-FORM-LINK" target="_blank">
+<!-- 🔹 Google Form Link (IMPORTANT: replace link) -->
+<a href="https://forms.gle/YOUR-LINK-HERE" target="_blank">
   <button type="button">📤 Submit Online</button>
 </a>
 
@@ -199,7 +198,7 @@ button:hover {
 
 <script>
 function saveData(){
-  document.getElementById("msg").innerHTML = "✅ Data Saved (Locally)";
+  document.getElementById("msg").innerHTML = "✅ Data Saved!";
 }
 </script>
 
