@@ -19,60 +19,49 @@ header {
   padding: 15px;
 }
 
-.container {
-  margin-top: 20px;
-}
-
 input {
   padding: 10px;
   width: 250px;
   border-radius: 5px;
-  border: 1px solid gray;
 }
 
 button {
-  padding: 10px 15px;
+  padding: 10px;
   background: #004080;
   color: white;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .card {
-  width: 500px;
-  margin: 30px auto;
+  width: 95%;
+  max-width: 750px;
+  margin: 20px auto;
   background: white;
   border: 4px solid #004080;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 15px;
   display: none;
-  box-shadow: 0 0 10px gray;
 }
 
-.header img {
-  width: 70px;
-}
-
-.header h2 {
-  color: #004080;
-  margin: 5px;
+img {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 6px;
 }
 
 th {
   background: #004080;
   color: white;
-}
-
-td, th {
-  border: 1px solid black;
-  padding: 8px;
 }
 
 .total {
@@ -81,8 +70,8 @@ td, th {
 }
 
 .print-btn {
-  margin-top: 10px;
   background: green;
+  margin-top: 10px;
 }
 </style>
 </head>
@@ -90,35 +79,29 @@ td, th {
 <body>
 
 <header>
-<h1>Cambridge School of Modern Education Otligam</h1>
-<p>Search by Roll Number OR Name</p>
+<h2>Cambridge School of Modern Education Otligam</h2>
+<p>Search Result by Roll No or Name</p>
 </header>
 
-<div class="container">
+<br>
+
 <input type="text" id="search" placeholder="Enter Roll No or Name">
 <button onclick="getResult()">Search</button>
-</div>
 
 <div class="card" id="card">
 
-<div class="header">
-<center>
-<img src="logo.png">
-<h2>Cambridge School of Modern Education</h2>
-<h3>Otligam</h3>
-</center>
-</div>
+<img src="marksheet.jpg">
 
 <p><b>Name:</b> <span id="name"></span></p>
-<p><b>Roll No:</b> <span id="rollno"></span></p>
+<p><b>Roll No:</b> <span id="roll"></span></p>
 
 <table>
 <tr><th>Subject</th><th>Marks</th></tr>
 <tr><td>English</td><td id="eng"></td></tr>
 <tr><td>Urdu</td><td id="ur"></td></tr>
-<tr><td>Mathematics</td><td id="math"></td></tr>
+<tr><td>Math</td><td id="math"></td></tr>
 <tr><td>Science</td><td id="sci"></td></tr>
-<tr><td>Social Science</td><td id="sst"></td></tr>
+<tr><td>SST</td><td id="sst"></td></tr>
 </table>
 
 <div class="total">
@@ -134,85 +117,81 @@ Grade: <span id="grade"></span>
 <script>
 
 var students = {
-"001": {name:"Aadil Hilal", eng:85, ur:78, math:90, sci:88, sst:80},
-"002": {name:"Soban Reyaz", eng:72, ur:80, math:65, sci:75, sst:70},
-"003": {name:"Mujataba Farooq", eng:90, ur:85, math:95, sci:92, sst:90},
-"004": {name:"Mumin Rashid", eng:80, ur:72, math:68, sci:70, sst:76},
-"005": {name:"Aabida Rashid", eng:88, ur:91, math:84, sci:85, sst:90},
-"006": {name:"Shagufta Fayaz", eng:76, ur:80, math:60, sci:82, sst:78},
-"007": {name:"Mujataba Fayaz", eng:90, ur:88, math:93, sci:87, sst:85},
-"008": {name:"Bab ul Reyan", eng:80, ur:70, math:75, sci:78, sst:80},
-"009": {name:"Musadiq Bashir", eng:70, ur:75, math:80, sci:75, sst:82},
-"010": {name:"Farhat Mukhtar", eng:78, ur:80, math:72, sci:79, sst:73},
-"011": {name:"Ifra Firdous", eng:85, ur:75, math:88, sci:90, sst:80},
-"012": {name:"Farhan Shabir", eng:72, ur:78, math:65, sci:70, sst:68},
-"013": {name:"Firdous Bashir", eng:92, ur:80, math:85, sci:83, sst:88},
-"014": {name:"Aayan Bhat", eng:84, ur:83, math:90, sci:86, sst:92},
-"015": {name:"Tamheed Jabal", eng:76, ur:70, math:78, sci:82, sst:80},
-"016": {name:"Tabasum Rashid", eng:89, ur:90, math:91, sci:88, sst:86},
-"017": {name:"Azra Yousuf", eng:80, ur:75, math:78, sci:84, sst:75},
-"018": {name:"Urban Yousuf", eng:85, ur:90, math:85, sci:92, sst:91},
-"019": {name:"Sadaf Showkat", eng:82, ur:76, math:79, sci:81, sst:78},
-"020": {name:"Faiqa Fayaz", eng:70, ur:80, math:85, sci:88, sst:90},
-"021": {name:"Suliam Jan", eng:88, ur:95, math:92, sci:97, sst:91},
-"022": {name:"Fiza Farooz", eng:74, ur:82, math:80, sci:79, sst:78},
-"023": {name:"Muzamil Bashir", eng:91, ur:80, math:88, sci:90, sst:84},
-"024": {name:"Arsalan Manzoor", eng:75, ur:70, math:82, sci:76, sst:80},
-"025": {name:"Irtiqa Habib", eng:89, ur:90, math:85, sci:90, sst:87},
-"026": {name:"Zubair Showkat", eng:77, ur:70, math:84, sci:72, sst:74},
-"027": {name:"Suliam Jan", eng:82, ur:85, math:80, sci:75, sst:80},
-"028": {name:"Faheem Reyaz", eng:91, ur:88, math:94, sci:93, sst:91},
-"029": {name:"Muntazir Bashir", eng:85, ur:80, math:88, sci:90, sst:92},
-"030": {name:"Dawood Bilal", eng:78, ur:75, math:82, sci:80, sst:75},
-"031": {name:"Kaneez Fatima", eng:80, ur:78, math:84, sci:76, sst:77},
-"032": {name:"Tahreem Iqbal", eng:70, ur:72, math:79, sci:82, sst:74},
-"033": {name:"Mir Zainab", eng:86, ur:83, math:91, sci:89, sst:87},
-"034": {name:"Bint ul Zehra", eng:80, ur:82, math:75, sci:70, sst:80},
-"035": {name:"Azan Shameem", eng:78, ur:85, math:87, sci:88, sst:90}
+"001":{name:"Aadil Hilal",eng:85,ur:78,math:90,sci:88,sst:80},
+"002":{name:"Soban Reyaz",eng:72,ur:80,math:65,sci:75,sst:70},
+"003":{name:"Mujataba Farooq",eng:90,ur:85,math:95,sci:92,sst:90},
+"004":{name:"Mumin Rashid",eng:80,ur:72,math:68,sci:70,sst:76},
+"005":{name:"Aabida Rashid",eng:88,ur:91,math:84,sci:85,sst:90},
+"006":{name:"Shagufta Fayaz",eng:76,ur:80,math:60,sci:82,sst:78},
+"007":{name:"Mujataba Fayaz",eng:90,ur:88,math:93,sci:87,sst:85},
+"008":{name:"Bab ul Reyan",eng:80,ur:70,math:75,sci:78,sst:80},
+"009":{name:"Musadiq Bashir",eng:70,ur:75,math:80,sci:75,sst:82},
+"010":{name:"Farhat Mukhtar",eng:78,ur:80,math:72,sci:79,sst:73},
+"011":{name:"Ifra Firdous",eng:85,ur:75,math:88,sci:90,sst:80},
+"012":{name:"Farhan Shabir",eng:72,ur:78,math:65,sci:70,sst:68},
+"013":{name:"Firdous Bashir",eng:92,ur:80,math:85,sci:83,sst:88},
+"014":{name:"Aayan Bhat",eng:84,ur:83,math:90,sci:86,sst:92},
+"015":{name:"Tamheed Jabal",eng:76,ur:70,math:78,sci:82,sst:80},
+"016":{name:"Tabasum Rashid",eng:89,ur:90,math:91,sci:88,sst:86},
+"017":{name:"Azra Yousuf",eng:80,ur:75,math:78,sci:84,sst:75},
+"018":{name:"Urban Yousuf",eng:85,ur:90,math:85,sci:92,sst:91},
+"019":{name:"Sadaf Showkat",eng:82,ur:76,math:79,sci:81,sst:78},
+"020":{name:"Faiqa Fayaz",eng:70,ur:80,math:85,sci:88,sst:90},
+"021":{name:"Suliam Jan",eng:88,ur:95,math:92,sci:97,sst:91},
+"022":{name:"Fiza Farooz",eng:74,ur:82,math:80,sci:79,sst:78},
+"023":{name:"Muzamil Bashir",eng:91,ur:80,math:88,sci:90,sst:84},
+"024":{name:"Arsalan Manzoor",eng:75,ur:70,math:82,sci:76,sst:80},
+"025":{name:"Irtiqa Habib",eng:89,ur:90,math:85,sci:90,sst:87},
+"026":{name:"Zubair Showkat",eng:77,ur:70,math:84,sci:72,sst:74},
+"027":{name:"Suliam Jan",eng:82,ur:85,math:80,sci:75,sst:80},
+"028":{name:"Faheem Reyaz",eng:91,ur:88,math:94,sci:93,sst:91},
+"029":{name:"Muntazir Bashir",eng:85,ur:80,math:88,sci:90,sst:92},
+"030":{name:"Dawood Bilal",eng:78,ur:75,math:82,sci:80,sst:75},
+"031":{name:"Kaneez Fatima",eng:80,ur:78,math:84,sci:76,sst:77},
+"032":{name:"Tahreem Iqbal",eng:70,ur:72,math:79,sci:82,sst:74},
+"033":{name:"Mir Zainab",eng:86,ur:83,math:91,sci:89,sst:87},
+"034":{name:"Bint ul Zehra",eng:80,ur:82,math:75,sci:70,sst:80},
+"035":{name:"Azan Shameem",eng:78,ur:85,math:87,sci:88,sst:90}
 };
 
-function getGrade(p){
-  if(p>=90) return "A+";
-  else if(p>=80) return "A";
-  else if(p>=70) return "B";
-  else if(p>=60) return "C";
-  else return "Fail";
+function grade(p){
+if(p>=90) return "A+";
+else if(p>=80) return "A";
+else if(p>=70) return "B";
+else if(p>=60) return "C";
+else return "Fail";
 }
 
 function getResult(){
-  var input = document.getElementById("search").value.toLowerCase();
-  var found = null;
-  var rollFound = "";
+var input=document.getElementById("search").value.toLowerCase();
+var data=null, roll="";
 
-  for(let roll in students){
-    let s = students[roll];
-    if(roll === input || s.name.toLowerCase().includes(input)){
-      found = s;
-      rollFound = roll;
-      break;
-    }
-  }
+for(let r in students){
+if(r==input || students[r].name.toLowerCase().includes(input)){
+data=students[r]; roll=r; break;
+}
+}
 
-  if(found){
-    var total = found.eng + found.ur + found.math + found.sci + found.sst;
-    var per = (total/500)*100;
+if(data){
+let total=data.eng+data.ur+data.math+data.sci+data.sst;
+let per=(total/500)*100;
 
-    document.getElementById("card").style.display = "block";
+document.getElementById("card").style.display="block";
 
-    document.getElementById("name").innerHTML = found.name;
-    document.getElementById("rollno").innerHTML = rollFound;
-    document.getElementById("eng").innerHTML = found.eng;
-    document.getElementById("ur").innerHTML = found.ur;
-    document.getElementById("math").innerHTML = found.math;
-    document.getElementById("sci").innerHTML = found.sci;
-    document.getElementById("sst").innerHTML = found.sst;
-    document.getElementById("total").innerHTML = total;
-    document.getElementById("per").innerHTML = per.toFixed(2);
-    document.getElementById("grade").innerHTML = getGrade(per);
+name.innerHTML=data.name;
+roll.innerHTML=roll;
+eng.innerHTML=data.eng;
+ur.innerHTML=data.ur;
+math.innerHTML=data.math;
+sci.innerHTML=data.sci;
+sst.innerHTML=data.sst;
+total.innerHTML=total;
+per.innerHTML=per.toFixed(2);
+grade.innerHTML=grade(per);
 
-  } else {
-    alert("Result Not Found");
-  }
+}else{
+alert("Result Not Found");
+}
 }
 
 </script>
