@@ -7,42 +7,75 @@
 <style>
 body {
   font-family: Arial;
-  background: #f2f2f2;
+  background: linear-gradient(to right, #dfe9f3, #ffffff);
   text-align: center;
 }
 
+/* SEARCH BOX */
+.search-box {
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 220px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+button {
+  padding: 10px 15px;
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* RESULT CARD */
 .card {
   width: 750px;
   margin: 20px auto;
   background: white;
-  border: 2px solid black;
+  border: 3px solid #004080;
   padding: 10px;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
 }
 
+/* HEADER */
 .top {
-  background: #f5d77a;
+  background: linear-gradient(to right, #ffcc00, #ff9900);
   padding: 10px;
-  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .top img {
   width: 60px;
 }
 
+/* DETAILS */
 .details {
   text-align: left;
   margin-top: 10px;
+  background: #f0f8ff;
+  padding: 10px;
+  border-radius: 5px;
 }
 
+.roll-highlight {
+  background: #004080;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-}
-
-th, td {
-  border: 1px solid black;
-  padding: 5px;
 }
 
 th {
@@ -50,14 +83,33 @@ th {
   color: white;
 }
 
+td, th {
+  border: 1px solid black;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* TOTAL BOX */
 .total-box {
   margin-top: 10px;
   text-align: left;
+  background: #e6ffe6;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .result {
   font-weight: bold;
   color: green;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  margin-top: 10px;
+  background: red;
 }
 </style>
 
@@ -65,12 +117,14 @@ th {
 
 <body>
 
-<h2>Student Result Search</h2>
+<h2>🎓 Student Result Search</h2>
 
-<input type="text" id="search" placeholder="Enter Roll No">
+<div class="search-box">
+<input type="text" id="search" placeholder="Enter Roll No OR Name">
 <button onclick="getResult()">Search</button>
+</div>
 
-<div class="card" id="card" style="display:none;">
+<div class="card" id="card">
 
 <div class="top">
 <center>
@@ -83,22 +137,17 @@ th {
 
 <div class="details">
 <p><b>Name:</b> <span id="name"></span></p>
-<p><b>Roll No:</b> <span id="roll"></span></p>
+<p><b>Roll No:</b> <span class="roll-highlight" id="roll"></span></p>
 <p><b>Class:</b> 7th</p>
 </div>
 
 <table>
-<tr>
-<th>Subject</th>
-<th>Marks</th>
-</tr>
-
+<tr><th>Subject</th><th>Marks</th></tr>
 <tr><td>English</td><td id="eng"></td></tr>
 <tr><td>Urdu</td><td id="ur"></td></tr>
 <tr><td>Math</td><td id="math"></td></tr>
 <tr><td>Science</td><td id="sci"></td></tr>
 <tr><td>Social Science</td><td id="sst"></td></tr>
-
 </table>
 
 <div class="total-box">
@@ -107,6 +156,8 @@ th {
 <p>Grade: <span id="grade"></span></p>
 <p class="result">Result: PASS ✔</p>
 </div>
+
+<button class="back-btn" onclick="goBack()">Back</button>
 
 </div>
 
@@ -133,16 +184,21 @@ var students = {
 "018": {name:"Urban Yousuf", eng:85, ur:90, math:85, sci:92, sst:91},
 "019": {name:"Sadaf Showkat", eng:82, ur:76, math:79, sci:81, sst:78},
 "020": {name:"Faiqa Fayaz", eng:70, ur:80, math:85, sci:88, sst:90},
-"021": {name:"Suliam Jan", eng:88, ur:95, math:92, sci:97, sst:91},
+"021": {name:"Suliam Jan", eng:88, ur:85, math:92, sci:87, sst:85},
 "022": {name:"Fiza Farooz", eng:74, ur:82, math:80, sci:79, sst:78},
 "023": {name:"Muzamil Bashir", eng:91, ur:80, math:88, sci:90, sst:84},
 "024": {name:"Arsalan Manzoor", eng:75, ur:70, math:82, sci:76, sst:80},
 "025": {name:"Irtiqa Habib", eng:89, ur:90, math:85, sci:90, sst:87},
 "026": {name:"Zubair Showkat", eng:77, ur:70, math:84, sci:72, sst:74},
-"027": {name:"Suliam Jan", eng:82, ur:85, math:80, sci:75, sst:80},
+"027": {name:"Yasir Gazi", eng:82, ur:85, math:80, sci:75, sst:80},
 "028": {name:"Faheem Reyaz", eng:91, ur:88, math:94, sci:93, sst:91},
-"029": {name:"Suliam Jan", eng:85, ur:80, math:88, sci:90, sst:92},
-"030": {name:"Dawood Bilal", eng:78, ur:75, math:82, sci:80, sst:75}
+"029": {name:"Muntazir Bashir", eng:85, ur:80, math:88, sci:90, sst:92},
+"030": {name:"Dawood Bilal", eng:78, ur:75, math:82, sci:80, sst:75},
+"031": {name:"Kaneez Fatima", eng:80, ur:78, math:84, sci:76, sst:77},
+"032": {name:"Tahreem Iqbal", eng:70, ur:72, math:79, sci:82, sst:74},
+"033": {name:"Mir Zainab", eng:86, ur:83, math:91, sci:89, sst:87},
+"034": {name:"Bint ul Zehra", eng:80, ur:82, math:75, sci:70, sst:80},
+"035": {name:"Azan Shameem", eng:78, ur:85, math:87, sci:88, sst:90}
 };
 
 function getGrade(p){
@@ -154,29 +210,43 @@ function getGrade(p){
 }
 
 function getResult(){
-  var roll = document.getElementById("search").value;
+  var input = document.getElementById("search").value.toLowerCase();
+  var found=null, rollFound="";
 
-  if(students[roll]){
+  for(let roll in students){
     let s = students[roll];
-    let total = s.eng+s.ur+s.math+s.sci+s.sst;
+    if(roll===input || s.name.toLowerCase().includes(input)){
+      found=s;
+      rollFound=roll;
+      break;
+    }
+  }
+
+  if(found){
+    let total = found.eng+found.ur+found.math+found.sci+found.sst;
     let per = (total/500)*100;
 
     document.getElementById("card").style.display="block";
 
-    document.getElementById("name").innerHTML=s.name;
-    document.getElementById("roll").innerHTML=roll;
-    document.getElementById("eng").innerHTML=s.eng;
-    document.getElementById("ur").innerHTML=s.ur;
-    document.getElementById("math").innerHTML=s.math;
-    document.getElementById("sci").innerHTML=s.sci;
-    document.getElementById("sst").innerHTML=s.sst;
+    document.getElementById("name").innerHTML=found.name;
+    document.getElementById("roll").innerHTML=rollFound;
+    document.getElementById("eng").innerHTML=found.eng;
+    document.getElementById("ur").innerHTML=found.ur;
+    document.getElementById("math").innerHTML=found.math;
+    document.getElementById("sci").innerHTML=found.sci;
+    document.getElementById("sst").innerHTML=found.sst;
     document.getElementById("total").innerHTML=total;
     document.getElementById("per").innerHTML=per.toFixed(2);
     document.getElementById("grade").innerHTML=getGrade(per);
-
-  } else {
+  }
+  else{
     alert("Result Not Found");
   }
+}
+
+function goBack(){
+  document.getElementById("card").style.display="none";
+  document.getElementById("search").value="";
 }
 
 </script>
