@@ -6,6 +6,7 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
+      text-align: center;
     }
 
     h1, h2 {
@@ -18,17 +19,21 @@
 
     ul {
       list-style-type: square;
+      display: inline-block;
+      text-align: left;
     }
 
-    a {
+    a.button {
       background-color: #004080;
       color: white;
-      padding: 10px;
+      padding: 12px 20px;
       text-decoration: none;
       border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
     }
 
-    a:hover {
+    a.button:hover {
       background-color: #003366;
     }
   </style>
@@ -49,11 +54,13 @@
 <h2>Apply Now</h2>
 <p>Fill the application form below to apply:</p>
 
-<!https://docs.google.com/forms/d/e/1FAIpQLSd3tN50goJDlVFfkPhdPbVqi5unDDT1rLuz7rZn_B8dCswUbw/viewform?usp=dialog(embed as button) -->
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeicydFnRQNMUCm_BxnsVb_akcT1l48ZbBCr5TEyx8APCue2A/viewform?usp=header" target="_blank">
+<!-- Updated Google Form Link -->
+<a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd3tN50goJDlVFfkPhdPbVqi5unDDT1rLuz7rZn_B8dCswUbw/viewform?usp=dialog" target="_blank">
   Apply Online
 </a>
 
-<p>If you prefer, you can also email your CV to: <a href="mailto:Najaryaseen29@gmail.com">Najaryaseen29@gmail.com</a></p>
+<p>If you prefer, you can also email your CV to: 
+<a href="mailto:Najaryaseen29@gmail.com">Najaryaseen29@gmail.com</a></p>
+
 </body>
 </html>
