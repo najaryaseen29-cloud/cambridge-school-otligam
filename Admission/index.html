@@ -32,8 +32,8 @@ h1,h2 {
 
 input, select {
   width:100%;
-  padding:6px;
-  margin:5px 0;
+  padding:8px;
+  margin:6px 0;
 }
 
 .row {
@@ -45,18 +45,10 @@ input, select {
   flex:1;
 }
 
-.photo-box {
-  border:2px solid black;
-  width:150px;
-  height:170px;
-  text-align:center;
-  padding:5px;
-}
-
 button {
   background:#004080;
   color:white;
-  padding:10px;
+  padding:12px;
   border:none;
   width:100%;
   margin-top:10px;
@@ -66,9 +58,7 @@ button {
 button:hover {
   background:#00264d;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -76,137 +66,100 @@ button:hover {
 <div class="container">
 
 <div class="header">
-  <!-- 🔹 Logo -->
   <img src="../logo.png" class="logo">
   <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
-  <h2>OTLIGAM BEERWAH</h2>
   <h2>ADMISSION FORM</h2>
 </div>
 
 <hr>
 
-<div class="row">
-  <div>
-    <label>Admission No:</label>
-    <input type="text">
+<label>Name:</label>
+<input type="text" id="name">
 
-    <label>Date:</label>
-    <input type="date">
-  </div>
+<label>Father Name:</label>
+<input type="text" id="father">
 
-  <!-- 🔹 Photo Upload -->
-  <div class="photo-box">
-    Student Photo
-    <input type="file" accept="image/*">
-  </div>
-</div>
+<label>Mother Name:</label>
+<input type="text" id="mother">
 
-<hr>
+<label>Phone:</label>
+<input type="text" id="phone">
 
-<label>Name of Student:</label>
-<input type="text">
-
-<label>Father's Name:</label>
-<input type="text">
-
-<label>Mother's Name:</label>
-<input type="text">
-
-<label>Last School Attended:</label>
-<input type="text">
-
-<div class="row">
-  <div>
-    <label>Last Grade:</label>
-    <input type="text">
-  </div>
-
-  <div>
-    <label>Grade Applied:</label>
-    <input type="text">
-  </div>
-
-  <div>
-    <label>Gender:</label>
-    <select>
-      <option>Male</option>
-      <option>Female</option>
-    </select>
-  </div>
-</div>
+<label>Email:</label>
+<input type="email" id="email">
 
 <label>Date of Birth:</label>
-<input type="date">
-
-<div class="row">
-  <div>
-    <label>Category:</label>
-    <input type="text">
-  </div>
-
-  <div>
-    <label>Blood Group:</label>
-    <input type="text">
-  </div>
-</div>
+<input type="date" id="dob">
 
 <label>Address:</label>
-<input type="text">
+<input type="text" id="address">
 
-<div class="row">
-  <div>
-    <label>Phone:</label>
-    <input type="text">
-  </div>
-
-  <div>
-    <label>Email:</label>
-    <input type="email">
-  </div>
-</div>
+<label>Class Applied:</label>
+<input type="text" id="class">
 
 <hr>
 
-<h3>Upload Documents</h3>
-
-<label>Birth Certificate:</label>
-<input type="file">
-
-<label>Aadhar Card:</label>
-<input type="file">
-
-<label>Marks Sheet:</label>
-<input type="file">
-
-<label>Student Photo:</label>
-<input type="file">
-
-<hr>
-
-<button onclick="saveData()">💾 Save Data</button>
-
-<button onclick="window.print()">🖨️ Print Form</button>
-
-<br><br>
-
-<!-- 🔹 Google Form Link (IMPORTANT: replace link) -->
-<a href="https://forms.gle/YOUR-LINK-HERE" target="_blank">
-  <button type="button">📤 Submit Online</button>
-</a>
+<button onclick="saveData()">📤 Submit Admission</button>
 
 <p id="msg" style="color:green; text-align:center;"></p>
 
-<script>
-function saveData(){
-  document.getElementById("msg").innerHTML = "✅ Data Saved!";
-}
-</script>
-
-<br>
-
-<a href="../index.html">⬅ Back to Home</a>
-
 </div>
+
+<!-- 🔥 Firebase Code -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB6R64l64wRSyt01XV7NQmuKuhhFzdgppM",
+  authDomain: "csme-school-website.firebaseapp.com",
+  projectId: "csme-school-website",
+  storageBucket: "csme-school-website.firebasestorage.app",
+  messagingSenderId: "499247772756",
+  appId: "1:499247772756:web:131af668d2ad7482d669c1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.saveData = async function () {
+
+  let name = document.getElementById("name").value;
+  let father = document.getElementById("father").value;
+  let mother = document.getElementById("mother").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let dob = document.getElementById("dob").value;
+  let address = document.getElementById("address").value;
+  let className = document.getElementById("class").value;
+
+  if(name=="" || phone==""){
+    document.getElementById("msg").innerHTML="❌ Fill required fields!";
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, "admissions"), {
+      name,
+      father,
+      mother,
+      phone,
+      email,
+      dob,
+      address,
+      className,
+      time: new Date()
+    });
+
+    document.getElementById("msg").innerHTML="✅ Admission Submitted Successfully!";
+  } catch (e) {
+    document.getElementById("msg").innerHTML="❌ Error: "+e;
+  }
+
+};
+
+</script>
 
 </body>
 </html>
