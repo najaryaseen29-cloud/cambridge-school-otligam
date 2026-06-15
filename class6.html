@@ -1,23 +1,90 @@
 var students = {
+"001": {name:"Aadil Hilal", eng:85, ur:78, math:90, sci:88, sst:80},
+"002": {name:"Soban Reyaz", eng:72, ur:80, math:65, sci:75, sst:70},
+"003": {name:"Mujataba Farooq", eng:90, ur:85, math:95, sci:92, sst:90},
+"004": {name:"Mumin Rashid", eng:80, ur:72, math:68, sci:70, sst:76},
+"005": {name:"Aabida Rashid", eng:88, ur:91, math:84, sci:85, sst:90},
+"006": {name:"Shagufta Fayaz", eng:76, ur:80, math:60, sci:82, sst:78},
+"007": {name:"Mujataba Fayaz", eng:90, ur:88, math:93, sci:87, sst:85},
+"008": {name:"Bab ul Reyan", eng:80, ur:70, math:75, sci:78, sst:80},
+"009": {name:"Musadiq Bashir", eng:70, ur:75, math:80, sci:75, sst:82},
+"010": {name:"Farhat Mukhtar", eng:78, ur:80, math:72, sci:79, sst:73},
+"011": {name:"Ifra Firdous", eng:85, ur:75, math:88, sci:90, sst:80},
+"012": {name:"Farhan Shabir", eng:72, ur:78, math:65, sci:70, sst:68},
+"013": {name:"Firdous Bashir", eng:92, ur:80, math:85, sci:83, sst:88},
+"014": {name:"Aayan Bhat", eng:84, ur:83, math:90, sci:86, sst:92},
+"015": {name:"Tamheed Jabal", eng:76, ur:70, math:78, sci:82, sst:80},
+"016": {name:"Tabasum Rashid", eng:89, ur:90, math:91, sci:88, sst:86},
+"017": {name:"Azra Yousuf", eng:80, ur:75, math:78, sci:84, sst:75},
+"018": {name:"Urban Yousuf", eng:85, ur:90, math:85, sci:92, sst:91},
+"019": {name:"Sadaf Showkat", eng:82, ur:76, math:79, sci:81, sst:78},
+"020": {name:"Faiqa Fayaz", eng:70, ur:80, math:85, sci:88, sst:90},
+"021": {name:"Suliam Jan", eng:88, ur:85, math:92, sci:87, sst:85},
+"022": {name:"Fiza Farooz", eng:74, ur:82, math:80, sci:79, sst:78},
+"023": {name:"Muzamil Bashir", eng:91, ur:80, math:88, sci:90, sst:84},
+"024": {name:"Arsalan Manzoor", eng:75, ur:70, math:82, sci:76, sst:80},
+"025": {name:"Irtiqa Habib", eng:89, ur:90, math:85, sci:90, sst:87},
+"026": {name:"Zubair Showkat", eng:77, ur:70, math:84, sci:72, sst:74},
+"027": {name:"Yasir Gazi", eng:82, ur:85, math:80, sci:75, sst:80},
+"028": {name:"Faheem Reyaz", eng:91, ur:88, math:94, sci:93, sst:91},
+"029": {name:"Muntazir Bashir", eng:85, ur:80, math:88, sci:90, sst:92},
+"030": {name:"Dawood Bilal", eng:78, ur:75, math:82, sci:80, sst:75},
+"031": {name:"Kaneez Fatima", eng:80, ur:78, math:84, sci:76, sst:77},
+"032": {name:"Tahreem Iqbal", eng:70, ur:72, math:79, sci:82, sst:74},
+"033": {name:"Mir Zainab", eng:86, ur:83, math:91, sci:89, sst:87},
+"034": {name:"Bint ul Zehra", eng:80, ur:82, math:75, sci:70, sst:80},
+"035": {name:"Azan Shameem", eng:78, ur:85, math:87, sci:88, sst:90}
+};
 
-"601": {name:"Ayaan Ahmad", eng:82, ur:78, math:85, sci:80, sst:84},
+function getGrade(p){
+  if(p>=90) return "A+";
+  else if(p>=80) return "A";
+  else if(p>=70) return "B";
+  else if(p>=60) return "C";
+  else return "Fail";
+}
 
-"602": {name:"Fatima Rashid", eng:88, ur:90, math:86, sci:85, sst:89},
+function getResult(){
+  var input = document.getElementById("search").value.toLowerCase();
+  var found=null, rollFound="";
 
-"603": {name:"Muzammil Bashir", eng:75, ur:80, math:78, sci:82, sst:76},
+  for(let roll in students){
+    let s = students[roll];
+    if(roll===input || s.name.toLowerCase().includes(input)){
+      found=s;
+      rollFound=roll;
+      break;
+    }
+  }
 
-"604": {name:"Insha Yousuf", eng:92, ur:88, math:95, sci:90, sst:91},
+  if(found){
+    let total = found.eng+found.ur+found.math+found.sci+found.sst;
+    let per = (total/500)*100;
 
-"605": {name:"Zaid Manzoor", eng:70, ur:72, math:80, sci:75, sst:78},
+    document.getElementById("card").style.display="block";
 
-"606": {name:"Areeba Jan", eng:85, ur:87, math:82, sci:88, sst:84},
+    document.getElementById("name").innerHTML=found.name;
+    document.getElementById("roll").innerHTML=rollFound;
+    document.getElementById("eng").innerHTML=found.eng;
+    document.getElementById("ur").innerHTML=found.ur;
+    document.getElementById("math").innerHTML=found.math;
+    document.getElementById("sci").innerHTML=found.sci;
+    document.getElementById("sst").innerHTML=found.sst;
+    document.getElementById("total").innerHTML=total;
+    document.getElementById("per").innerHTML=per.toFixed(2);
+    document.getElementById("grade").innerHTML=getGrade(per);
+  }
+  else{
+    alert("Result Not Found");
+  }
+}
 
-"607": {name:"Faizan Ali", eng:78, ur:75, math:84, sci:80, sst:79},
+function goBack(){
+  document.getElementById("card").style.display="none";
+  document.getElementById("search").value="";
+}
 
-"608": {name:"Sana Showkat", eng:90, ur:92, math:88, sci:91, sst:90},
+</script>
 
-"609": {name:"Arham Bhat", eng:74, ur:70, math:76, sci:72, sst:75},
-
-"610": {name:"Iqra Fayaz", eng:86, ur:84, math:90, sci:87, sst:88}
-
-};<html>
+</body>
+</html>
