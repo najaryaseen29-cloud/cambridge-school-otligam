@@ -2,254 +2,287 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>School Result</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Academic Audit Report</title>
 
 <style>
-body {
-  font-family: Arial;
-  background: linear-gradient(to right, #dfe9f3, #ffffff);
-  text-align: center;
+body{
+font-family:Arial,sans-serif;
+background:#eef3f8;
+margin:0;
+padding:20px;
 }
 
-/* SEARCH BOX */
-.search-box {
-  margin-top: 20px;
+.search-box{
+text-align:center;
+margin-bottom:20px;
 }
 
-input {
-  padding: 10px;
-  width: 220px;
-  border-radius: 5px;
-  border: 1px solid gray;
+input{
+padding:10px;
+width:250px;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
-button {
-  padding: 10px 15px;
-  background: #004080;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+button{
+padding:10px 15px;
+background:#002060;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
-/* RESULT CARD */
-.card {
-  width: 750px;
-  margin: 20px auto;
-  background: white;
-  border: 3px solid #004080;
-  padding: 10px;
-  display: none;
-  border-radius: 10px;
-  box-shadow: 0 0 10px gray;
+.report{
+display:none;
+max-width:1000px;
+margin:auto;
+background:white;
+border:4px solid #002060;
+border-radius:15px;
+padding:20px;
 }
 
-/* HEADER */
-.top {
-  background: linear-gradient(to right, #ffcc00, #ff9900);
-  padding: 10px;
-  border-radius: 10px;
+.header{
+text-align:center;
 }
 
-.top img {
-  width: 60px;
+.logo{
+width:80px;
 }
 
-/* DETAILS */
-.details {
-  text-align: left;
-  margin-top: 10px;
-  background: #f0f8ff;
-  padding: 10px;
-  border-radius: 5px;
+.school{
+font-size:30px;
+font-weight:bold;
+color:#002060;
 }
 
-.roll-highlight {
-  background: #004080;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
+.title{
+background:#002060;
+color:white;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+font-size:22px;
 }
 
-/* TABLE */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.info-table,
+.marks-table,
+.audit-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
 }
 
-th {
-  background: #004080;
-  color: white;
+.info-table td,
+.marks-table td,
+.marks-table th,
+.audit-table td,
+.audit-table th{
+border:1px solid #999;
+padding:8px;
 }
 
-td, th {
-  border: 1px solid black;
-  padding: 6px;
+.marks-table th,
+.audit-table th{
+background:#002060;
+color:white;
 }
 
-tr:nth-child(even) {
-  background: #f2f2f2;
+.footer{
+margin-top:30px;
+display:flex;
+justify-content:space-between;
+text-align:center;
 }
 
-/* TOTAL BOX */
-.total-box {
-  margin-top: 10px;
-  text-align: left;
-  background: #e6ffe6;
-  padding: 10px;
-  border-radius: 5px;
+.sign{
+width:30%;
 }
 
-.result {
-  font-weight: bold;
-  color: green;
-}
-
-/* BACK BUTTON */
-.back-btn {
-  margin-top: 10px;
-  background: red;
+.back-btn{
+background:red;
+margin-top:15px;
 }
 </style>
-
 </head>
 
 <body>
 
-<h2>🎓 Student Result Search</h2>
-
 <div class="search-box">
-<input type="text" id="search" placeholder="Enter Roll No OR Name">
+<input type="text" id="search" placeholder="Enter Roll No or Name">
 <button onclick="getResult()">Search</button>
 </div>
 
-<div class="card" id="card">
+<div class="report" id="report">
 
-<div class="top">
-<center>
-<img src="logo.png">
-<h2>Cambridge School of Modern Education</h2>
-<p>Otligam Beerwah</p>
-<h3>Students Progress Report Card</h3>
-</center>
+<div class="header">
+<img src="logo.png" class="logo">
+
+<div class="school">
+CAMBRIDGE SCHOOL OF MODERN EDUCATION
 </div>
 
-<div class="details">
-<p><b>Name:</b> <span id="name"></span></p>
-<p><b>Roll No:</b> <span class="roll-highlight" id="roll"></span></p>
-<p><b>Class:</b> 6th</p>
+<div>
+OTLIGAM BEERWAH
 </div>
 
-<table>
-<tr><th>Subject</th><th>Marks</th></tr>
-<tr><td>English</td><td id="eng"></td></tr>
-<tr><td>Urdu</td><td id="ur"></td></tr>
-<tr><td>Math</td><td id="math"></td></tr>
-<tr><td>Science</td><td id="sci"></td></tr>
-<tr><td>Social Science</td><td id="sst"></td></tr>
+<div class="title">
+STUDENT ACADEMIC AUDIT REPORT
+</div>
+</div>
+
+<table class="info-table">
+<tr>
+<td><b>Student Name:</b> <span id="name"></span></td>
+<td><b>Roll No:</b> <span id="roll"></span></td>
+</tr>
+
+<tr>
+<td><b>Class:</b> 7th</td>
+<td><b>Session:</b> 2025-26</td>
+</tr>
+
+<tr>
+<td><b>Father Name:</b> __________</td>
+<td><b>Admission No:</b> __________</td>
+</tr>
 </table>
 
-<div class="total-box">
-<p>Total: <span id="total"></span>/500</p>
-<p>Percentage: <span id="per"></span>%</p>
-<p>Grade: <span id="grade"></span></p>
-<p class="result">Result: PASS ✔</p>
+<table class="marks-table">
+<tr>
+<th>Subject</th>
+<th>Total Marks</th>
+<th>Obtained Marks</th>
+<th>Percentage</th>
+<th>Grade</th>
+</tr>
+
+<tr>
+<td>English</td>
+<td>100</td>
+<td id="eng"></td>
+<td id="engp"></td>
+<td id="engg"></td>
+</tr>
+
+<tr>
+<td>Urdu</td>
+<td>100</td>
+<td id="urdu"></td>
+<td id="urdup"></td>
+<td id="urdug"></td>
+</tr>
+
+<tr>
+<td>Mathematics</td>
+<td>100</td>
+<td id="math"></td>
+<td id="mathp"></td>
+<td id="mathg"></td>
+</tr>
+
+<tr>
+<td>Science</td>
+<td>100</td>
+<td id="sci"></td>
+<td id="scip"></td>
+<td id="scig"></td>
+</tr>
+
+<tr>
+<td>Social Science</td>
+<td>100</td>
+<td id="sst"></td>
+<td id="sstp"></td>
+<td id="sstg"></td>
+</tr>
+
+<tr>
+<th>Total</th>
+<th>500</th>
+<th id="total"></th>
+<th id="percentage"></th>
+<th id="grade"></th>
+</tr>
+</table>
+
+<table class="audit-table">
+<tr>
+<th>Academic Audit Area</th>
+<th>Performance</th>
+</tr>
+
+<tr><td>English Reading</td><td>Excellent</td></tr>
+<tr><td>English Writing</td><td>Very Good</td></tr>
+<tr><td>English Concepts</td><td>Excellent</td></tr>
+<tr><td>Urdu Reading</td><td>Good</td></tr>
+<tr><td>Urdu Writing</td><td>Very Good</td></tr>
+<tr><td>Mathematics Concepts</td><td>Excellent</td></tr>
+<tr><td>Science Concepts</td><td>Excellent</td></tr>
+<tr><td>Social Science Concepts</td><td>Very Good</td></tr>
+<tr><td>Communication Skills</td><td>Excellent</td></tr>
+<tr><td>Discipline & Behaviour</td><td>Excellent</td></tr>
+</table>
+
+<br>
+
+<p><b>Teacher Remarks:</b> Excellent Performance.</p>
+
+<p><b>Result:</b> PASS ✔</p>
+
+<button onclick="window.print()">Print Report</button>
+<button class="back-btn" onclick="goBack()">Back</button>
+
+<div class="footer">
+
+<div class="sign">
+_________________<br>
+Class Teacher
 </div>
 
-<button class="back-btn" onclick="goBack()">Back</button>
+<div class="sign">
+_________________<br>
+Parent Signature
+</div>
+
+<div class="sign">
+_________________<br>
+Principal
+</div>
+
+</div>
 
 </div>
 
 <script>
 
 var students = {
-"001": {name:"Aadil Hilal", eng:85, ur:78, math:90, sci:88, sst:80},
-"002": {name:"Soban Reyaz", eng:72, ur:80, math:65, sci:75, sst:70},
-"003": {name:"Mujataba Farooq", eng:90, ur:85, math:95, sci:92, sst:90},
-"004": {name:"Mumin Rashid", eng:80, ur:72, math:68, sci:70, sst:76},
-"005": {name:"Aabida Rashid", eng:88, ur:91, math:84, sci:85, sst:90},
-"006": {name:"Shagufta Fayaz", eng:76, ur:80, math:60, sci:82, sst:78},
-"007": {name:"Mujataba Fayaz", eng:90, ur:88, math:93, sci:87, sst:85},
-"008": {name:"Bab ul Reyan", eng:80, ur:70, math:75, sci:78, sst:80},
-"009": {name:"Musadiq Bashir", eng:70, ur:75, math:80, sci:75, sst:82},
-"010": {name:"Farhat Mukhtar", eng:78, ur:80, math:72, sci:79, sst:73},
-"011": {name:"Ifra Firdous", eng:85, ur:75, math:88, sci:90, sst:80},
-"012": {name:"Farhan Shabir", eng:72, ur:78, math:65, sci:70, sst:68},
-"013": {name:"Firdous Bashir", eng:92, ur:80, math:85, sci:83, sst:88},
-"014": {name:"Aayan Bhat", eng:84, ur:83, math:90, sci:86, sst:92},
-"015": {name:"Tamheed Jabal", eng:76, ur:70, math:78, sci:82, sst:80},
-"016": {name:"Tabasum Rashid", eng:89, ur:90, math:91, sci:88, sst:86},
-"017": {name:"Azra Yousuf", eng:80, ur:75, math:78, sci:84, sst:75},
-"018": {name:"Urban Yousuf", eng:85, ur:90, math:85, sci:92, sst:91},
-"019": {name:"Sadaf Showkat", eng:82, ur:76, math:79, sci:81, sst:78},
-"020": {name:"Faiqa Fayaz", eng:70, ur:80, math:85, sci:88, sst:90},
-"021": {name:"Suliam Jan", eng:88, ur:85, math:92, sci:87, sst:85},
-"022": {name:"Fiza Farooz", eng:74, ur:82, math:80, sci:79, sst:78},
-"023": {name:"Muzamil Bashir", eng:91, ur:80, math:88, sci:90, sst:84},
-"024": {name:"Arsalan Manzoor", eng:75, ur:70, math:82, sci:76, sst:80},
-"025": {name:"Irtiqa Habib", eng:89, ur:90, math:85, sci:90, sst:87},
-"026": {name:"Zubair Showkat", eng:77, ur:70, math:84, sci:72, sst:74},
-"027": {name:"Yasir Gazi", eng:82, ur:85, math:80, sci:75, sst:80},
-"028": {name:"Faheem Reyaz", eng:91, ur:88, math:94, sci:93, sst:91},
-"029": {name:"Muntazir Bashir", eng:85, ur:80, math:88, sci:90, sst:92},
-"030": {name:"Dawood Bilal", eng:78, ur:75, math:82, sci:80, sst:75},
-"031": {name:"Kaneez Fatima", eng:80, ur:78, math:84, sci:76, sst:77},
-"032": {name:"Tahreem Iqbal", eng:70, ur:72, math:79, sci:82, sst:74},
-"033": {name:"Mir Zainab", eng:86, ur:83, math:91, sci:89, sst:87},
-"034": {name:"Bint ul Zehra", eng:80, ur:82, math:75, sci:70, sst:80},
-"035": {name:"Azan Shameem", eng:78, ur:85, math:87, sci:88, sst:90}
+// Add Students Here
 };
 
-function getGrade(p){
-  if(p>=90) return "A+";
-  else if(p>=80) return "A";
-  else if(p>=70) return "B";
-  else if(p>=60) return "C";
-  else return "Fail";
+function grade(m){
+if(m>=90) return "A+";
+if(m>=80) return "A";
+if(m>=70) return "B";
+if(m>=60) return "C";
+return "Fail";
 }
 
 function getResult(){
-  var input = document.getElementById("search").value.toLowerCase();
-  var found=null, rollFound="";
 
-  for(let roll in students){
-    let s = students[roll];
-    if(roll===input || s.name.toLowerCase().includes(input)){
-      found=s;
-      rollFound=roll;
-      break;
-    }
-  }
+// Add Search Logic Here
 
-  if(found){
-    let total = found.eng+found.ur+found.math+found.sci+found.sst;
-    let per = (total/500)*100;
-
-    document.getElementById("card").style.display="block";
-
-    document.getElementById("name").innerHTML=found.name;
-    document.getElementById("roll").innerHTML=rollFound;
-    document.getElementById("eng").innerHTML=found.eng;
-    document.getElementById("ur").innerHTML=found.ur;
-    document.getElementById("math").innerHTML=found.math;
-    document.getElementById("sci").innerHTML=found.sci;
-    document.getElementById("sst").innerHTML=found.sst;
-    document.getElementById("total").innerHTML=total;
-    document.getElementById("per").innerHTML=per.toFixed(2);
-    document.getElementById("grade").innerHTML=getGrade(per);
-  }
-  else{
-    alert("Result Not Found");
-  }
 }
 
 function goBack(){
-  document.getElementById("card").style.display="none";
-  document.getElementById("search").value="";
+document.getElementById("report").style.display="none";
 }
 
 </script>
+
+<a href="class6.html">Check Class 6th Result</a>
 
 </body>
 </html>
