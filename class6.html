@@ -145,6 +145,11 @@ STUDENT ACADEMIC AUDIT REPORT
 </tr>
 
 <tr>
+<td><b>Height:</b> <span id="height"></span></td>
+<td><b>Weight:</b> <span id="weight"></span></td>
+</tr>
+
+<tr>
 <td><b>Father Name:</b> <span id="father"></span></td>
 <td><b>Mother Name:</b> <span id="mother"></span></td>
 <td><b>Admission No:</b> <span id="admission"></span></td>
@@ -265,6 +270,8 @@ name:"Aadil Hilal",
 father:"Hilal Ahmad",
 mother:"Rashida Begum",
 admission:"CSME001",
+height:"4 ft 8 in",
+weight:"38 kg",
 eng:85,
 ur:78,
 math:90,
@@ -327,6 +334,8 @@ document.getElementById("roll").innerHTML=rollNo;
 document.getElementById("father").innerHTML=found.father;
 document.getElementById("mother").innerHTML=found.mother;
 document.getElementById("admission").innerHTML=found.admission;
+document.getElementById("height").innerHTML=found.height;
+document.getElementById("weight").innerHTML=found.weight;
 
 document.getElementById("eng").innerHTML=found.eng;
 document.getElementById("urdu").innerHTML=found.ur;
