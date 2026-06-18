@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Academic Audit Report</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#eef3f8;
+margin:0;
+padding:20px;
+}
+
+.search-box{
+text-align:center;
+margin-bottom:20px;
+}
+
+input{
+padding:10px;
+width:250px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+padding:10px 15px;
+background:#002060;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.report{
+display:none;
+max-width:1000px;
+margin:auto;
+background:white;
+border:4px solid #002060;
+border-radius:15px;
+padding:20px;
+}
+
+.header{
+text-align:center;
+}
+
+.logo{
+width:80px;
+}
+
+.school{
+font-size:30px;
+font-weight:bold;
+color:#002060;
+}
+
+.title{
+background:#002060;
+color:white;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+font-size:22px;
+}
+
+.info-table,
+.marks-table,
+.audit-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+.info-table td,
+.marks-table td,
+.marks-table th,
+.audit-table td,
+.audit-table th{
+border:1px solid #999;
+padding:8px;
+}
+
+.marks-table th,
+.audit-table th{
+background:#002060;
+color:white;
+}
+
+.footer{
+margin-top:30px;
+display:flex;
+justify-content:space-between;
+text-align:center;
+}
+
+.sign{
+width:30%;
+}
+
+.back-btn{
+background:red;
+margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Enter Roll No or Name">
+<button onclick="getResult()">Search</button>
+</div>
+
+<div class="report" id="report">
+
+<div class="header">
+<img src="logo.png" class="logo">
+
+<div class="school">
+CAMBRIDGE SCHOOL OF MODERN EDUCATION
+</div>
+
+<div>
+OTLIGAM BEERWAH
+</div>
+
+<div class="title">
+STUDENT ACADEMIC AUDIT REPORT
+</div>
+</div>
+
+<table class="info-table">
+<tr>
+<td><b>Student Name:</b> <span id="name"></span></td>
+<td><b>Roll No:</b> <span id="roll"></span></td>
+</tr>
+
+<tr>
+<td><b>Class:</b> 7th</td>
+<td><b>Session:</b> 2025-26</td>
+</tr>
+
+<tr>
+<td><b>Height:</b> <span id="height"></span></td>
+<td><b>Weight:</b> <span id="weight"></span></td>
+</tr>
+
+<tr>
+<td><b>Father Name:</b> <span id="father"></span></td>
+<td><b>Mother Name:</b> <span id="mother"></span></td>
+<td><b>Admission No:</b> <span id="admission"></span></td>
+</tr>
+</table>
+
+<table class="marks-table">
+<tr>
+<th>Subject</th>
+<th>Total Marks</th>
+<th>Obtained Marks</th>
+<th>Percentage</th>
+<th>Grade</th>
+</tr>
+
+<tr>
+<td>English</td>
+<td>100</td>
+<td id="eng"></td>
+<td id="engp"></td>
+<td id="engg"></td>
+</tr>
+
+<tr>
+<td>Urdu</td>
+<td>100</td>
+<td id="urdu"></td>
+<td id="urdup"></td>
+<td id="urdug"></td>
+</tr>
+
+<tr>
+<td>Mathematics</td>
+<td>100</td>
+<td id="math"></td>
+<td id="mathp"></td>
+<td id="mathg"></td>
+</tr>
+
+<tr>
+<td>Science</td>
+<td>100</td>
+<td id="sci"></td>
+<td id="scip"></td>
+<td id="scig"></td>
+</tr>
+
+<tr>
+<td>Social Science</td>
+<td>100</td>
+<td id="sst"></td>
+<td id="sstp"></td>
+<td id="sstg"></td>
+</tr>
+
+<tr>
+<th>Total</th>
+<th>500</th>
+<th id="total"></th>
+<th id="percentage"></th>
+<th id="grade"></th>
+</tr>
+</table>
+
+<table class="audit-table">
+<tr>
+<th>Academic Audit Area</th>
+<th>Performance</th>
+</tr>
+
+<tr><td>English Reading</td><td>Excellent</td></tr>
+<tr><td>English Writing</td><td>Very Good</td></tr>
+<tr><td>English Concepts</td><td>Excellent</td></tr>
+<tr><td>Urdu Reading</td><td>Good</td></tr>
+<tr><td>Urdu Writing</td><td>Very Good</td></tr>
+<tr><td>Mathematics Concepts</td><td>Excellent</td></tr>
+<tr><td>Science Concepts</td><td>Excellent</td></tr>
+<tr><td>Social Science Concepts</td><td>Very Good</td></tr>
+<tr><td>Communication Skills</td><td>Excellent</td></tr>
+<tr><td>Discipline & Behaviour</td><td>Excellent</td></tr>
+</table>
+
+<br>
+
+<p><b>Teacher Remarks:</b> Excellent Performance.</p>
+
+<p><b>Result:</b> PASS ✔</p>
+
+<button onclick="window.print()">Print Report</button>
+<button class="back-btn" onclick="goBack()">Back</button>
+
+<div class="footer">
+
+<div class="sign">
+_________________<br>
+Class Teacher
+</div>
+
+<div class="sign">
+_________________<br>
+Parent Signature
+</div>
+
+<div class="sign">
+<img src="principal-sign.png" width="120"><br>
+Principal
+</div
+
+</div>
+
+</div>
+
+<script>
+
+var students = {
+"001":{
+name:"Aadil Hilal",father:"Hilal Ahmad",
+mother:"Rashida Begum",
+admission:"CSME001",
+height:"4 ft 8 in",weight:"38 kg",
+eng:85,
+ur:78,
+math:90,
+sci:88,
+sst:80,
+
+englishReading:"Excellent",
+englishWriting:"Excellent",
+englishConcepts:"Very Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Excellent",
+scienceConcepts:"Excellent",
+socialConcepts:"Very Good",
+
+generalKnowledge:"Good",
+communicationSkills:"Excellent",
+classParticipation:"Very Good",
+disciplineBehaviour:"Excellent"
+},
+};
+
+function grade(m){
+if(m>=90) return "A+";
+if(m>=80) return "A";
+if(m>=70) return "B";
+if(m>=60) return "C";
+return "Fail";
+}
+
+function getResult(){
+
+var input=document.getElementById("search").value.toLowerCase();
+
+var found=null;
+var rollNo="";
+
+for(let roll in students){
+
+if(
+roll===input ||
+students[roll].name.toLowerCase().includes(input)
+){
+found=students[roll];
+rollNo=roll;
+break;
+}
+
+}
+
+if(found){
+
+document.getElementById("report").style.display="block";
+
+document.getElementById("name").innerHTML=found.name;
+document.getElementById("roll").innerHTML=rollNo;
+document.getElementById("father").innerHTML=found.father;
+document.getElementById("mother").innerHTML=found.mother;
+document.getElementById("admission").innerHTML=found.admission;
+document.getElementById("height").innerHTML=found.height;
+document.getElementById("weight").innerHTML=found.weight;
+
+document.getElementById("eng").innerHTML=found.eng;
+document.getElementById("urdu").innerHTML=found.ur;
+document.getElementById("math").innerHTML=found.math;
+document.getElementById("sci").innerHTML=found.sci;
+document.getElementById("sst").innerHTML=found.sst;
+
+document.getElementById("engp").innerHTML=found.eng+"%";
+document.getElementById("urdup").innerHTML=found.ur+"%";
+document.getElementById("mathp").innerHTML=found.math+"%";
+document.getElementById("scip").innerHTML=found.sci+"%";
+document.getElementById("sstp").innerHTML=found.sst+"%";
+
+document.getElementById("engg").innerHTML=grade(found.eng);
+document.getElementById("urdug").innerHTML=grade(found.ur);
+document.getElementById("mathg").innerHTML=grade(found.math);
+document.getElementById("scig").innerHTML=grade(found.sci);
+document.getElementById("sstg").innerHTML=grade(found.sst);
+
+var total=found.eng+found.ur+found.math+found.sci+found.sst;
+var percentage=(total/500)*100;
+
+document.getElementById("total").innerHTML=total;
+document.getElementById("percentage").innerHTML=percentage.toFixed(2)+"%";
+document.getElementById("grade").innerHTML=grade(percentage);
+
+}
+else{
+alert("Result Not Found");
+}
+
+}
+
+function goBack(){
+document.getElementById("report").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
