@@ -156,64 +156,6 @@ STUDENT ACADEMIC AUDIT REPORT
 </tr>
 </table>
 
-<table class="marks-table">
-<tr>
-<th>Subject</th>
-<th>Total Marks</th>
-<th>Obtained Marks</th>
-<th>Percentage</th>
-<th>Grade</th>
-</tr>
-
-<tr>
-<td>English</td>
-<td>100</td>
-<td id="eng"></td>
-<td id="engp"></td>
-<td id="engg"></td>
-</tr>
-
-<tr>
-<td>Urdu</td>
-<td>100</td>
-<td id="urdu"></td>
-<td id="urdup"></td>
-<td id="urdug"></td>
-</tr>
-
-<tr>
-<td>Mathematics</td>
-<td>100</td>
-<td id="math"></td>
-<td id="mathp"></td>
-<td id="mathg"></td>
-</tr>
-
-<tr>
-<td>Science</td>
-<td>100</td>
-<td id="sci"></td>
-<td id="scip"></td>
-<td id="scig"></td>
-</tr>
-
-<tr>
-<td>Social Science</td>
-<td>100</td>
-<td id="sst"></td>
-<td id="sstp"></td>
-<td id="sstg"></td>
-</tr>
-
-<tr>
-<th>Total</th>
-<th>500</th>
-<th id="total"></th>
-<th id="percentage"></th>
-<th id="grade"></th>
-</tr>
-</table>
-
 <table class="audit-table">
 <tr>
 <th>Academic Audit Area</th>
@@ -242,12 +184,7 @@ STUDENT ACADEMIC AUDIT REPORT
 <button class="back-btn" onclick="goBack()">Back</button>
 
 <div class="footer">
-
-<div class="sign">
-_________________<br>
-Class Teacher
-</div>
-
+  
 <div class="sign">
 _________________<br>
 Parent Signature
@@ -295,14 +232,6 @@ disciplineBehaviour:"Excellent"
 },
 };
 
-function grade(m){
-if(m>=90) return "A+";
-if(m>=80) return "A";
-if(m>=70) return "B";
-if(m>=60) return "C";
-return "Fail";
-}
-
 function getResult(){
 
 var input=document.getElementById("search").value.toLowerCase();
@@ -335,30 +264,6 @@ document.getElementById("admission").innerHTML=found.admission;
 document.getElementById("height").innerHTML=found.height;
 document.getElementById("weight").innerHTML=found.weight;
 
-document.getElementById("eng").innerHTML=found.eng;
-document.getElementById("urdu").innerHTML=found.ur;
-document.getElementById("math").innerHTML=found.math;
-document.getElementById("sci").innerHTML=found.sci;
-document.getElementById("sst").innerHTML=found.sst;
-
-document.getElementById("engp").innerHTML=found.eng+"%";
-document.getElementById("urdup").innerHTML=found.ur+"%";
-document.getElementById("mathp").innerHTML=found.math+"%";
-document.getElementById("scip").innerHTML=found.sci+"%";
-document.getElementById("sstp").innerHTML=found.sst+"%";
-
-document.getElementById("engg").innerHTML=grade(found.eng);
-document.getElementById("urdug").innerHTML=grade(found.ur);
-document.getElementById("mathg").innerHTML=grade(found.math);
-document.getElementById("scig").innerHTML=grade(found.sci);
-document.getElementById("sstg").innerHTML=grade(found.sst);
-
-var total=found.eng+found.ur+found.math+found.sci+found.sst;
-var percentage=(total/500)*100;
-
-document.getElementById("total").innerHTML=total;
-document.getElementById("percentage").innerHTML=percentage.toFixed(2)+"%";
-document.getElementById("grade").innerHTML=grade(percentage);
 
 }
 else{
