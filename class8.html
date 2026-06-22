@@ -3,7 +3,481 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Aca
+<title>Student Academic Audit Report</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#eef3f8;
+margin:0;
+padding:20px;
+}
+
+.search-box{
+text-align:center;
+margin-bottom:20px;
+}
+
+input{
+padding:10px;
+width:250px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+padding:10px 15px;
+background:#002060;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.report{
+display:none;
+max-width:1000px;
+margin:auto;
+background:white;
+border:4px solid #002060;
+border-radius:15px;
+padding:20px;
+}
+
+.header{
+text-align:center;
+}
+
+.logo{
+width:80px;
+}
+
+.school{
+font-size:30px;
+font-weight:bold;
+color:#002060;
+}
+
+.title{
+background:#002060;
+color:white;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+font-size:22px;
+}
+
+.info-table,
+.marks-table,
+.audit-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+.info-table td,
+.marks-table td,
+.marks-table th,
+.audit-table td,
+.audit-table th{
+border:1px solid #999;
+padding:8px;
+}
+
+.marks-table th,
+.audit-table th{
+background:#002060;
+color:white;
+}
+
+.footer{
+margin-top:30px;
+display:flex;
+justify-content:space-between;
+text-align:center;
+}
+
+.sign{
+width:30%;
+}
+
+.back-btn{
+background:red;
+margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Enter Roll No or Name">
+<button onclick="getResult()">Search</button>
+</div>
+
+<div class="report" id="report">
+
+<div class="header">
+<img src="logo.png" class="logo">
+
+<div class="school">
+CAMBRIDGE SCHOOL OF MODERN EDUCATION
+</div>
+
+<div>
+OTLIGAM BEERWAH
+</div>
+
+<div class="title">
+STUDENT ACADEMIC AUDIT REPORT
+</div>
+</div>
+
+<table class="info-table">
+  
+<tr>
+<td><b>Student Name:</b> <span
+id="name"></span></td>
+<td><b>Roll No:</b> <span id="roll"></
+span></td>
+<td><b>Class:</b> 6th</td>
+</tr>
+
+</tr>  
+<td><b>Father Name:</b> <span
+id="father"></span></td>
+<td><b>Mother Name:</b> <span
+id="mother"></span></td>
+<td><b>Session:</b> 2025-26</td>
+</tr>
+  
+<tr>
+<td><b>Height:</b> <span id="height"></
+span></td>
+<td><b>Weight:</b> <span id="weight"></
+span></td>
+<td><b>Attendance:</b> <span
+id="attendance"></span></td>
+</tr>
+  
+</table>
+
+<table class="audit-table">
+<tr>
+<th>Academic Audit Area</th>
+<th>Performance</th>
+</tr>
+
+<tr><td>English Reading</td><td id="englishReading"></td></tr>
+<tr><td>English Writing</td><td id="englishWriting"></td></tr>
+<tr><td>English Concepts</td><td id="englishConcepts"></td></tr>
+<tr><td>Urdu Reading</td><td id="urduReading"></td></tr>
+<tr><td>Urdu Writing</td><td id="urduWriting"></td></tr>
+<tr><td>Mathematics Concepts</td><td id="mathConcepts"></td></tr>
+<tr><td>Science Concepts</td><td id="scienceConcepts"></td></tr>
+<tr><td>Social Science Concepts</td><td id="socialConcepts"></td></tr>
+<tr><td>Homework Completion</td><td id="homeworkcompleation"></td></tr>
+<tr><td>Health & Illness</td><td id="healthIllness"></td></tr>
+<tr><td>Participation In All Activities</td><td id="Participationinallactivites"></td></tr>
+<tr><td>Discipline & Behaviour</td><td id="disciplineBehaviour"></td></tr>
+</table>
+
+<br>
+
+<p><b>Teacher Remarks:</b> <span id="remarks"></span></p>
+
+<p><b>Result:</b> PASS ✔</p>
+
+<button onclick="window.print()">Print Report</button>
+<button class="back-btn" onclick="goBack()">Back</button>
+
+<div class="footer">
+  
+<div class="sign">
+<img src="school-seal.png" width="100"><br>
+School Seal
+</div>
+
+<div class="sign">
+<img src="principal-sign.png" width="120"><br>
+Principal
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+var students = {
+"7001":{
+name:"Jannat Ul Firdous",father:"Firdous Ahmad Mir",
+mother:"Afrooza Akhther",
+attendance:"95%",
+height:"4 ft 5 in",weight:"44 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Excellent",
+englishConcepts:"Very Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Excellent",
+scienceConcepts:"Very Good",
+socialConcepts:"Very Good",
+
+homeworkcompleation:"Good",
+healthIllness:"Good",
+Participationinallactivites:"Excellent",
+disciplineBehaviour:"Good",
+remarks:"Excellent Performance"
+},
+"7002":{
+name:"Suliam Jan",father:"Khazir Mohammad Bhat",
+mother:"Rubeena Bano",
+attendance:"65%",
+height:"5 ft",weight:"55 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Excellent",
+englishConcepts:"Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Very Good",
+scienceConcepts:"Very Good",
+socialConcepts:"Very Good",
+
+homeworkcompleation:"Excellent",
+healthIllness:"Not Good",
+Participationinallactivites:"Good",
+disciplineBehaviour:"Average",
+remarks:"Needs Improvement"
+},
+"7003":{
+name:"Aruja Nazir",father:"Nazir Ahmad Khan",
+mother:"Haneefa Bano",
+attendance:"95%",
+height:"4 ft 5 in",weight:"44 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Good",
+englishConcepts:"Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Good",
+scienceConcepts:"Very Good",
+socialConcepts:"Good",
+
+homeworkcompleation:"Excellent",
+healthIllness:"Red Eyes Due To Elergy",
+Participationinallactivites:"Excellent",
+disciplineBehaviour:"Good",
+remarks:"Very Good"
+},
+"7004":{
+name:"Muntazir Mukhtar Bhat",father:"Mukhtar Ahmad Bhat",
+mother:"Fareeda Bano",
+attendance:"93%",
+height:"5 ft",weight:"49 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Satesfactory",
+englishConcepts:"Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Good",
+scienceConcepts:"Very Good",
+socialConcepts:"Good",
+
+homeworkcompleation:"Good",
+healthIllness:"Good",
+Participationinallactivites:"Good",
+disciplineBehaviour:"Average",
+remarks:"Good Progress"
+},
+"700554":{
+name:"Firdous Ahmad Tantary",father:"Bashir Ahmad Tantary",
+mother:"Wazira Bano",
+attendance:"95%",
+height:"4 ft 5 in",weight:"44 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Excellent",
+englishConcepts:"Very Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Excellent",
+scienceConcepts:"Very Good",
+socialConcepts:"Very Good",
+
+homeworkcompleation:"Good",
+healthIllness:"Good",
+Participationinallactivites:"Excellent",
+disciplineBehaviour:"Good",
+remarks:"Excellent"
+},
+"7006":{
+name:"Farhan Shabir",father:"Shabir Ahmad Wani",
+mother:"Shada Bano",
+attendance:"95%",
+height:"5 ft 2 in",weight:"55 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Very Good",
+englishConcepts:"Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Good",
+scienceConcepts:"Good",
+socialConcepts:"Good",
+
+homeworkcompleation:"Good",
+healthIllness:"Red Eyes Due To Elergy",
+Participationinallactivites:"Good",
+disciplineBehaviour:"Satisfactory",
+remarks:"Satisfactory"
+},
+"7007":{
+name:"Umer Riyaz",father:"Riyaz Ahmad Sheikh",
+mother:"Haseena Begum",
+attendance:"87%",
+height:"4 ft 5 in",weight:"36 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Need  More Improvement",
+englishConcepts:"Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Good",
+scienceConcepts:"Good",
+socialConcepts:"Good",
+
+homeworkcompleation:"Averagr",
+healthIllness:"Good",
+Participationinallactivites:"Good",
+disciplineBehaviour:"Good",
+remarks:"Good"
+},
+"7008":{
+name:"Irtiqa Habib",father:"Habibullah Ganie",
+mother:"Shahnaza Bano",
+attendance:"98%",
+height:"5 ft 3 in",weight:"46 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Very Good",
+englishConcepts:"Excellent",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Excellent",
+scienceConcepts:"Excellent",
+socialConcepts:"Excellent",
+
+homeworkcompleation:"Excellent",
+healthIllness:"Good",
+Participationinallactivites:"Excellent",
+disciplineBehaviour:"Good",
+remarks:"Outstanding"
+},
+"7009":{
+name:"Muntazir Farooq Sheikh",father:"Farooq Ahmad Sheikh",
+mother:"Afroza Akhter",
+attendance:"98%",
+height:"5 ft 3 in",weight:"46 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Good",
+englishConcepts:"Very Good",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Good",
+
+mathConcepts:"Very Good",
+scienceConcepts:"Very Good",
+socialConcepts:"Very Good",
+
+homeworkcompleation:"Excellent",
+healthIllness:"Good",
+Participationinallactivites:"Excellent",
+disciplineBehaviour:"Good",
+remarks:"Very Good"
+},
+"70010":{
+name:"Anamta Maqbool",father:"Maqbool Ahmad Wani",
+mother:"Chesfeeda Bano",
+attendance:"82%",
+height:"5 ft 3 in",weight:"50 kg",
+
+
+englishReading:"Excellent",
+englishWriting:"Good",
+englishConcepts:"Satisfactory",
+
+urduReading:"Very Good",
+urduWriting:"Excellent",
+urduConcepts:"Satisfactory",
+
+mathConcepts:"Satisfactory",
+scienceConcepts:"Satisfactory",
+socialConcepts:"Satisfactory",
+
+homeworkcompleation:"Good",
+healthIllness:"Defect Of Vision",
+Participationinallactivites:"Average",
+disciplineBehaviour:"Average",
+remarks:"Needs More Effort"
+},
+};
+
+function getResult(){
+
+var input=document.getElementById("search").value.toLowerCase();
+
+var found=null;
+var rollNo="";
+
+for(let roll in students){
+
+if(
+roll===input ||
+students[roll].name.toLowerCase().includes(input)
+){
+found=students[roll];
+rollNo=roll;
+break;
 }
 
 }
@@ -12,4 +486,40 @@ if(found){
 
 document.getElementById("report").style.display="block";
 
-document.getElementById("name").inner
+document.getElementById("name").innerHTML=found.name;
+document.getElementById("roll").innerHTML=rollNo;
+document.getElementById("father").innerHTML=found.father;
+document.getElementById("mother").innerHTML=found.mother;
+document.getElementById("attendance").innerHTML=found.attendance;
+document.getElementById("height").innerHTML=found.height;
+document.getElementById("weight").innerHTML=found.weight;
+document.getElementById("englishReading").innerHTML = found.englishReading;
+document.getElementById("englishWriting").innerHTML = found.englishWriting;
+document.getElementById("englishConcepts").innerHTML = found.englishConcepts;
+document.getElementById("urduReading").innerHTML = found.urduReading;
+document.getElementById("urduWriting").innerHTML = found.urduWriting;
+document.getElementById("mathConcepts").innerHTML = found.mathConcepts;
+document.getElementById("scienceConcepts").innerHTML = found.scienceConcepts;
+document.getElementById("socialConcepts").innerHTML = found.socialConcepts;
+document.getElementById("homeworkcompleation").innerHTML = found.homeworkcompleation;
+document.getElementById("healthIllness").innerHTML = found.healthIllness;
+document.getElementById("Participationinallactivites").innerHTML = found.Participationinallactivites;
+document.getElementById("disciplineBehaviour").innerHTML = found.disciplineBehaviour;
+document.getElementById("remarks").innerHTML = found.remarks;
+
+
+}
+else{
+alert("Result Not Found");
+}
+
+}
+
+function goBack(){
+document.getElementById("report").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
